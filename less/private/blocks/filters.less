@@ -1,0 +1,282 @@
+// Панель поиска и фильтров в ЛК.
+
+// Обёртка вокруг всего блока, включающая в себя и строку поиска, и панель фильтров.
+.filters-wrap {
+	background: #ffffff;
+	flex: 1;
+}
+
+// Всплывающий слой с фильтрами.
+.filters-panel {
+	background-color: #ffffff;
+	border: 1px solid #f1f1f1;
+	border-top: 0;
+	box-shadow: 0 0.15em 0.4em #bbbbbb;
+	display: flex;
+	font-size: 0.95em;
+	position: absolute;
+	top: @top-panel-height;
+	z-index: 10;
+
+	@media (max-width: @screen-sm-max) {
+		top: @top-panel-height-sm;
+	}
+
+	// Левая и правая панели.
+	> .filter-left, > .filter-right {
+		padding: 1.8rem;
+		// Дефолтная ширина обусловлена элементом дропдауна с двумя календарями для выбора интервала - при такой ширине они влазят без переноса.
+		width: 22.0em;
+
+		@media (max-width: @screen-sm-max) {
+			padding: 1.2rem;
+		}
+
+		// Панель с увеличенной шириной.
+		&.filter-lg {
+			width: 25.5em;
+		}
+	}
+
+	> .filter-left {
+		background-color: #ffffff;
+	}
+
+	> .filter-right {
+		background-color: #f5f5f5;
+
+		.filter-label {
+			align-items: center;
+			color: @color-text-moderate;
+			display: flex;
+			margin-bottom: 0.1em;
+			margin-right: auto;
+		}
+		// Разделитель для фильтров типа "от-до".
+		.filter-sep {
+			margin: 0 0.5em;
+		}
+		.form-control {
+			text-align: center;
+		}
+	}
+
+	// Обёртка вокруг кнопок.
+	.button-panel {
+		margin: 1.0em 0 0;
+		text-align: center;
+	}
+}
+
+// Стили для инпута на панели фильтров.
+.filter-input() {
+	border: 1px solid #dddddd;
+	border-radius: 0.2em;
+	color: @color-text-moderate;
+	font-size: 0.95rem;
+	font-weight: normal;
+	height: 2.1em;
+	margin: 0;
+	padding: 0.2em 0.5em;
+}
+
+// Список с фильтрами.
+.filter-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	& > li {
+		align-items: center;
+		display: flex;
+		justify-content: flex-start;
+		margin-bottom: 1.0em;
+		position: relative;
+		width: 100%;
+	}
+
+	// Лейбл на правой панели перед инпутом.
+	.filter-label {
+		min-width: 8.0em;
+		width: 8.0em;
+	}
+
+	.form-control {
+		.filter-input();
+	}
+
+	// Тема (одна из многих), которая не пошла. :(
+	// Предполагалось, что в фильтрах можно будет создавать шаблоны для быстрого поиска по каким-то условиям.
+	// todo Не используется.
+	.template-panel {
+		margin: 1.0em 0;
+
+		label {
+			display: block;
+		}
+	}
+
+	// Выпадающий список. Используется в основном для выбора даты ("День", "Неделя" и т. п.).
+	.dropdown {
+		width: 100%;
+		// Не знаю, зачем это было добавлено, но это ломает отображение, если рядом несколько выпадающих списков.
+		//z-index: 100;
+
+		.dropdown-toggle {
+			.filter-input();
+			background: transparent;
+			padding: 0.3em 1.0em;
+			text-align: left;
+			width: 100%;
+
+			&:after {
+				content: '\f3d0';
+				font-family: 'Ionicons';
+				position: absolute;
+				right: 0.6em;
+				top: 0.3em;
+			}
+		}
+		.dropdown-menu {
+			font-size: 0.95rem;
+			width: 100%;
+
+			& > li {
+				color: @color-text-moderate;
+				cursor: default;
+				height: 2.1em;
+
+				&.interval-wrap {
+					border: 1px solid #dddddd;
+					border-top: none;
+					padding: 0 0.8em;
+
+					label {
+						cursor: pointer;
+
+						&:first-child {
+							margin-right: 0.7em;
+						}
+						&:after {
+							content: '\f2d1';
+							font-family: 'Ionicons';
+						}
+
+						.form-control {
+							border: none;
+							box-shadow: none;
+							display: inline-block;
+							height: 2.0em;
+							width: 6.2em;
+						}
+					}
+				}
+			}
+			a {
+				border: 1px solid #dddddd;
+				border-top: none;
+				color: @color-text-moderate;
+				font-weight: normal;
+				padding: 0.3em 1.0em;
+			}
+		}
+
+		&.open {
+			& > .dropdown-toggle {
+				//background:
+				border: 1px solid #dddddd;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+		}
+	}
+
+	.select2-container {
+		font-size: 0.95em;
+
+		.select2-selection--single {
+			border-color: #dddddd;
+			border-radius: 0.2em;
+			height: 2.1em;
+
+			.select2-selection__rendered {
+				line-height: 1.9;
+			}
+		}
+		.select2-selection--multiple {
+			border-color: #dddddd;
+			border-radius: 0.2em;
+			min-height: 2.1em;
+
+			.select2-selection__rendered {
+				.select2-selection__choice {
+					align-items: center;
+					border-radius: 0;
+					display: flex;
+					margin-top: 0.25em;
+					padding-left: 0.9em;
+					position: relative;
+
+					.select2-selection__choice__remove {
+						bottom: 0;
+						left: 0.2em;
+						margin: 0;
+						position: absolute;
+						right: 0;
+						top: 0;
+
+						&:hover {
+							color: @color-main;
+						}
+					}
+				}
+			}
+			.select2-search__field {
+				min-width: 11.0em;
+
+				&::placeholder {
+					color: #999999;
+				}
+			}
+		}
+
+		&.select2-container--focus,
+		&.select2-container--open {
+			.select2-selection--multiple {
+				border-color: #888888;
+			}
+			.select2-selection--single {
+				border-color: #888888;
+			}
+		}
+
+		.select2-dropdown {
+			border-color: #dddddd;
+
+			&.select2-dropdown--below {
+				margin-top: 1px;
+			}
+			.select2-search {
+				border-left: none;
+				border-color: #dddddd;
+				border-right: none;
+				border-top: none;
+				padding: 0;
+			}
+		}
+		.select2-selection__arrow {
+			b {
+				border: none !important;
+
+				&:after {
+					content: '\f3d0';
+					font-family: 'Ionicons';
+					font-weight: 300;
+					position: absolute;
+					right: -0.6em;
+					top: -0.5em;
+				}
+			}
+		}
+	}
+}

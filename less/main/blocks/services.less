@@ -1,0 +1,98 @@
+.services-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	@media (max-width: @screen-xs-max) {
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	@media (max-width: @screen-xxs-max) {
+		align-items: center;
+	}
+
+	.service {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		margin: 0 auto 1.5em;
+		text-align: center;
+		width: 12.0rem;
+
+		/*@media (max-width: @screen-xs-max) {
+			margin-bottom: 1.0em;
+		}*/
+		@media (max-width: @screen-xxs-max) {
+			width: auto;
+		}
+
+		.icon {
+			height: 5.5rem;
+			margin: 0;
+			width: 5.5rem;
+
+			&.icon-xs {
+				height: 3.2rem;
+				width: 3.2rem;
+			}
+			&.icon-sm {
+				height: 4.4rem;
+				width: 4.4rem;
+			}
+			&.icon-lg {
+				height: 6.7rem;
+				width: 6.7rem;
+			}
+			&.icon-xl {
+				height: 7.7rem;
+				width: 7.7rem;
+			}
+			&.icon-border-round {
+				border: 0.2rem solid @color-inactive;
+				border-radius: 50%;
+				padding: 1.2rem;
+			}
+			&.icon-border-round-numbered {
+				padding: 1.6rem;
+				position: relative;
+			}
+			&.icon-invert-h {
+				transform: scaleX(-1);
+			}
+
+			@media (max-width: @screen-xxs-max) {
+				height: 4.0rem;
+				width: 4.0rem;
+			}
+		}
+		.service-text {
+			margin-top: 0.85em;
+
+			@media (max-width: @screen-xxs-max) {
+				margin-top: 0.5em;
+			}
+		}
+		.service-header {
+			font-size: 1.1em;
+			font-weight: 600;
+			margin-bottom: 0.8em;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.services-chain {
+	@media (max-width: @screen-sm-max) {
+		flex-wrap: wrap;
+	}
+
+	@media (min-width: @screen-md-min) {
+		.service {
+			&.service-shifted {
+				margin-top: 11.5em;
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+// Чтобы можно было использовать как mixin.
+.clearfix {
+	&:before {
+		content: '';
+		display: table;
+	}
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
+
+.type-number-clean() {
+	input[type="number"] {
+		-moz-appearance: textfield;
+	}
+	input::-webkit-inner-spin-button,
+	input::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+	}
+}
+
+.not-print {
+	@media print {
+		display: none;
+	}
+}

@@ -1,0 +1,14 @@
+.generate-width(@i: 0) when (@i =< 30) {
+	& when (@i > 0) {
+		.w-@{i}r {
+			width: ~"@{i}rem" !important;
+		}
+	}
+	.w-@{i}-5r when (@i =< 20) {
+		width: ~"@{i}.5rem" !important;
+	}
+
+	.generate-width(@i + 1);
+}
+
+.generate-width();

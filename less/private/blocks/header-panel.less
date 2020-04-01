@@ -1,0 +1,153 @@
+// Верхняя панель (выпадающее меню, поиск и т. п.).
+.header-panel-private {
+	.not-print();
+
+	align-items: stretch;
+	background: rgb(255, 255, 255);
+	border-bottom: 1px solid @color-highlight;
+	display: flex;
+	flex-direction: row;
+	height: @top-panel-height;
+	justify-content: space-between;
+	left: 5.0rem;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 101;
+
+	@media (max-width: @screen-sm-max) {
+		height: @top-panel-height-sm;
+	}
+
+	// Пункт выпадающего меню.
+	.top-menu-item,
+	.top-menu-item:focus {
+		align-items: center;
+		background: rgb(255, 255, 255);
+		border: none;
+		border-radius: 0;
+		border-right: 1px solid @color-highlight;
+		box-shadow: none;
+		color: rgb(120, 120, 120);
+		display: flex;
+		font-size: 1.05rem;
+		font-weight: 600;
+		height: 100%;
+		justify-content: space-between;
+		padding: 0 1.0rem 0 2.2rem;
+		text-align: left;
+		text-transform: uppercase;
+		width: 18.0rem;
+
+		@media (max-width: @screen-sm-max) {
+			padding: 0 0.7rem 0 1.5rem;
+			width: 14.0rem;
+		}
+
+		.arrow-icon {
+			position: relative;
+
+			&:after {
+				color: rgb(180, 180, 180);
+				content: '^';
+				font-size: 1.3rem;
+				font-weight: 300;
+				position: absolute;
+				right: 0.7rem;
+				top: -1.0rem;
+				transform: rotate(180deg) scaleX(2.5) scaleY(0.8);
+			}
+		}
+	}
+	.btn.top-menu-item:hover {
+		background: @color-highlight;
+		color: rgb(120, 120, 120);
+		transition: none;
+	}
+
+	.dropdown-menu {
+		border: none;
+		border-radius: 0;
+		margin: 0;
+		padding: 0;
+		width: 18.0rem;
+
+		@media (max-width: @screen-sm-max) {
+			width: 14.0rem;
+		}
+
+		.top-menu-item,
+		.top-menu-item:focus {
+			border-top: 1px solid @color-highlight;
+			height: @top-panel-height;
+
+			@media (max-width: @screen-sm-max) {
+				height: @top-panel-height-sm;
+			}
+		}
+	}
+
+	a {
+		color: #5e5e5e;
+
+		&:focus, &:hover {
+			color: #5e5e5e;
+		}
+	}
+
+	// Обёртка для элемента верхней панели (например, вокруг кнопки).
+	.panel-item-wrap {
+		align-items: center;
+		background: #ffffff;
+		border-left: 1px solid @color-highlight;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		padding: 0 2.0rem;
+
+		@media (max-width: @screen-sm-max) {
+			padding: 0 1.0rem;
+		}
+	}
+
+	// Поиск.
+	.search-wrap {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		margin: 0;
+		padding: 0 1.5rem;
+		width: 100%;
+		z-index: 11;
+
+		@media (max-width: @screen-sm-max) {
+			padding: 0 1.0rem;
+		}
+
+		.icon {
+			color: @color-inactive;
+			font-size: 2.0em;
+			font-weight: bold;
+
+			@media (max-width: @screen-sm-max) {
+				font-size: 1.6em;
+			}
+		}
+		.label-counter {
+			//background-color: @color-main;
+			//color: @color-text-light;
+			font-weight: 500;
+			margin: 0.1em 0 0 0.9em;
+			padding: 0.7em 0.6em;
+		}
+		.form-control {
+			border: none;
+			box-shadow: none;
+			flex: 1;
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}

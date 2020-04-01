@@ -1,0 +1,120 @@
+.padding-t-0 {
+	padding-top: 0 !important;
+}
+
+.padding-t-xs {
+	padding-top: 0.25rem !important;
+}
+
+.padding-t-sm {
+	padding-top: 0.5rem !important;
+}
+
+.padding-t-md {
+	padding-top: 1.0rem !important;
+}
+
+.padding-t-lg {
+	padding-top: 2.0rem !important;
+}
+
+.padding-t-xl {
+	padding-top: 3.0rem !important;
+}
+
+.padding-r-0 {
+	padding-right: 0 !important;
+}
+
+.padding-r-xs {
+	padding-right: 0.25rem !important;
+}
+
+.padding-r-sm {
+	padding-right: 0.5rem !important;
+}
+
+.padding-r-md {
+	padding-right: 1.0rem !important;
+}
+
+.padding-r-lg {
+	padding-right: 2.0rem !important;
+}
+
+.padding-r-xl {
+	padding-right: 3.0rem !important;
+}
+
+.padding-b-0 {
+	padding-bottom: 0 !important;
+}
+
+.padding-b-xs {
+	padding-bottom: 0.25rem !important;
+}
+
+.padding-b-sm {
+	padding-bottom: 0.5rem !important;
+}
+
+.padding-b-md {
+	padding-bottom: 1.0rem !important;
+}
+
+.padding-b-lg {
+	padding-bottom: 2.0rem !important;
+}
+
+.padding-b-xl {
+	padding-bottom: 3.0rem !important;
+}
+
+.padding-l-0 {
+	padding-left: 0 !important;
+}
+
+.padding-l-xs {
+	padding-left: 0.25rem !important;
+}
+
+.padding-l-sm {
+	padding-left: 0.5rem !important;
+}
+
+.padding-l-md {
+	padding-left: 1.0rem !important;
+}
+
+.padding-l-lg {
+	padding-left: 2.0rem !important;
+}
+
+.padding-l-xl {
+	padding-left: 3.0rem !important;
+}
+
+.padding-0 {
+	padding: 0 !important;
+}
+
+.pt-0 { padding-top: 0 !important; }
+.pr-0 { padding-right: 0 !important; }
+.pb-0 { padding-bottom: 0 !important; }
+.pl-0 { padding-left: 0 !important; }
+.px-0 { padding-top: 0 !important; padding-bottom: 0 !important; }
+.py-0 { padding-right: 0 !important; padding-left: 0 !important; }
+.p-0 { padding: 0 !important; }
+
+.p-loop(@i: 1) when (@i <= 7) {
+	.pt-@{i}r { padding-top: @i*(1.0rem) !important; }
+	.pr-@{i}r { padding-right: @i*(1.0rem) !important; }
+	.pb-@{i}r { padding-bottom: @i*(1.0rem) !important; }
+	.pl-@{i}r { padding-left: @i*(1.0rem) !important; }
+	.px-@{i}r { padding-top: @i*(1.0rem) !important; padding-bottom: @i*(1.0rem) !important; }
+	.py-@{i}r { padding-right: @i*(1.0rem) !important; padding-left: @i*(1.0rem) !important; }
+	.p-@{i}r { padding: @i*(1.0rem) !important; }
+
+	.p-loop(@i + 1);
+}
+.p-loop(1);

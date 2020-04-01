@@ -1,0 +1,1152 @@
+/*
+Старое барахло, нужно раскидать по файлам и выпилить.
+*/
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #666666;
+	background: #ffffff;
+	font-weight: 400;
+}
+
+/* Отключаем скролл страницы при открытии главного меню. */
+/*@media (max-width: 767px)
+{
+	body.no-scroll
+	{
+		overflow: hidden;
+	}
+}*/
+
+.clear:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+form, menu, iframe {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+dl, dt, dd {
+	list-style: none;
+}
+
+::selection {
+	background: #777777;
+	color: #ffffff;
+}
+
+::-moz-selection {
+	background: #777777;
+	color: #ffffff;
+}
+
+.password span.top {
+	top: -2px;
+	left: 0;
+	transition: .4s;
+}
+
+@media screen {
+	section.ex_11 .phone_box .zakaz_phone:hover {
+		background: #9f1b1b;
+		color: #ffffff;
+		box-shadow: inset 0 0 0 30px #9f1b1b;
+		border: 2px solid transparent;
+		transition: all 0.5s ease;
+	}
+
+	section.ex_11 .phone_box .zakaz_phone {
+		float: right;
+		font-weight: 500;
+		font-size: 16px;
+		color: #ffffff;
+		background: #9f1b1b;
+		width: 200px;
+		padding: 10px 0;
+		display: block;
+		text-align: center;
+		border-radius: 50px;
+		border: 3px solid transparent;
+		transition: all 0.3s ease;
+	}
+
+	section.ex_11 .phone_box .zakaz_phone:hover {
+		background: #ffffff;
+		color: #9f1b1b;
+		border: 3px solid #9f1b1b;
+		background: #9f1b1b;
+		color: #9f1b1b;
+		box-shadow: inset 0 0 0 30px #ffffff;
+		transition: all 0.3s ease;
+		border: 3px solid transparent;
+	}
+}
+
+@media print {
+	section.ex_11 {
+		display: none;
+	}
+}
+
+form input::-webkit-input-placeholder {
+	font-weight: 400;
+	color: #555555;
+}
+
+input:focus::-webkit-input-placeholder {
+	color: transparent !important;
+}
+
+input:focus::-moz-placeholder {
+	color: transparent !important;
+}
+
+input:focus:-moz-placeholder {
+	color: transparent !important;
+}
+
+.auth-control-group {
+	float: left;
+	position: relative;
+}
+
+.telephone label,
+.entry_emeyl label,
+.password label,
+.fio label,
+#address label,
+.shak label {
+	position: relative;
+}
+
+.telephone label .border,
+.entry_emeyl label .border {
+	position: absolute;
+	left: 144px;
+	top: 25px;
+	width: 0;
+	background: #9f1b1b;
+	height: 2px;
+}
+
+.password label .border {
+	bottom: -13px;
+	position: absolute;
+	left: 70px;
+	right: 0;
+	background: #9f1b1b;
+	height: 2px;
+	width: 0;
+}
+
+.show_room .telephone {
+	margin-left: 24px;
+}
+
+.country, .country_2 {
+	position: absolute;
+	left: 0;
+	z-index: 100;
+	background: #ffffff;
+	font-weight: 300;
+	font-size: 14px;
+	color: #888888;
+
+}
+
+.fio label .border {
+	position: absolute;
+	bottom: -12px;
+	left: 170px;
+	right: 0;
+	background: #9f1b1b;
+	height: 2px;
+	width: 0;
+}
+
+.border, .shak label .border {
+	position: absolute;
+	bottom: -11px;
+	left: 170px;
+	right: 0;
+	background: #9f1b1b;
+	height: 2px;
+	width: 0;
+}
+
+.home_adress label .border {
+	position: absolute;
+	bottom: -1px;
+	left: 22px;
+	right: 0;
+	background: #9f1b1b;
+	height: 2px;
+}
+
+.home_adress label {
+	position: relative;
+}
+
+section.ex_11 {
+	background: #f1f1f1;
+}
+
+section.ex_11 .wrap {
+	display: inline-flex;
+	justify-content: space-around;
+	width: 80%;
+}
+
+section.ex_11 .wrap dl {
+	margin: 0;
+}
+
+section.ex_11 .wrap dt a {
+	font-weight: 600;
+	font-size: 16px;
+	color: #333333;
+}
+
+section.ex_11 .wrap dt a:hover {
+	color: #9f1b1b;
+	transition: all 0.4s;
+}
+
+section.ex_11 .wrap dd:last-child {
+	margin-bottom: 1.2em;
+}
+
+section.ex_11 .wrap dd a {
+	font-weight: 300;
+	font-size: 14px;
+	color: #333333;
+	transition: all 0.4s;
+}
+
+section.ex_11 .phone_box {
+	float: right;
+	/*margin-top: 0.4rem;*/
+	width: 20%;
+	text-align: right;
+}
+
+section.ex_11 .phone_box p {
+	font-weight: 500;
+	font-size: 16px;
+	color: #333333;
+	margin: 0;
+}
+
+section.ex_11 a.phone span {
+	color: #9f1b1b;
+}
+
+section.ex_11 a.phone {
+	font-weight: 400;
+	font-size: 19px;
+	color: #333333;
+	display: block;
+}
+
+/* меню гамбургер начало */
+
+#popup section.ex_11 {
+	background: none;
+	color: #ffffff;
+}
+
+#popup section.ex_11 .wrap dt a {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+#popup section.ex_11 .wrap dd a {
+	font-weight: 300;
+	font-size: 14px;
+}
+
+/* меню гамбургер конец */
+
+.signup {
+	min-height: 250px;
+	width: 420px;
+	right: 0;
+}
+
+.forget_password {
+	box-sizing: border-box;
+	font-size: 0.9rem;
+	font-weight: 300;
+	width: 100%;
+	margin-top: 0.5rem;
+	border: 1px solid #9f1b1b;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.forget_password_abs {
+	box-sizing: border-box;
+	font-size: 12px;
+	font-weight: 300;
+	border: 1px solid #9f1b1b;
+	border-radius: 5px;
+	padding: 10px;
+	position: absolute;
+	left: 1.0rem;
+	bottom: -2.3rem;
+}
+
+.restore_pasword {
+	min-height: 250px;
+	width: 420px;
+	right: 0;
+}
+
+.forget_password a {
+	font-weight: 300;
+	font-size: 12px;
+	color: #9f1b1b;
+}
+
+.forget_password a:hover {
+	color: #333333 !important;
+	background: #ffffff !important;
+	border: none !important;
+}
+
+h3.popup-header {
+	font-size: 21px;
+	text-align: center;
+	position: relative;
+	margin-top: -10px;
+	margin-bottom: 29px;
+}
+
+h3.popup-header:before {
+	content: '';
+	width: 53px;
+	height: 2px;
+	background: #9f1b1b;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	right: 0;
+	top: 35px;
+}
+
+.exit .panel {
+	background-color: initial;
+	border: none;
+	box-shadow: none;
+	margin-bottom: 0;
+	width: 100%;
+	text-align: right;
+	padding-top: 15px;
+}
+
+.telephone input.tel, .entry_emeyl input {
+	padding-bottom: 8px;
+	margin-top: 14px;
+	border: none;
+	border-bottom: 1px solid #888888;
+	outline: none;
+	width: 220px;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.entry_emeyl {
+	display: none;
+}
+
+button.send {
+	width: 160px;
+	background: #9f1b1b;
+	padding: 10px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: 500;
+	font-size: 16px;
+	border-radius: 50px;
+	border: 2px solid transparent;
+	cursor: pointer;
+}
+
+button.send:hover {
+	border: 2px solid #9f1b1b;
+	color: #9f1b1b;
+	background: #ffffff;
+	transition: 0.5s;
+
+}
+
+.restore {
+	float: left;
+	width: 145px;
+	border: none;
+}
+
+.restore a {
+	border: none !important;
+	font-weight: 300 !important;
+	font-size: 14px;
+	color: #9f1b1b;
+	line-height: 24px;
+}
+
+.restore a:hover {
+	color: #333333 !important;
+	background: #ffffff !important;
+}
+
+.telephone a,
+.entry_emeyl a {
+	padding-top: 10px;
+	font-weight: 300;
+	font-size: 12px;
+	color: #9f1b1b;
+	cursor: pointer;
+}
+
+.telephone p:hover, .entry_emeyl p:hover {
+	color: #333333;
+}
+
+.telephone, .entry_emeyl {
+	width: 220px;
+	float: right;
+	margin-bottom: 25px;
+}
+
+.signup .send {
+	width: 192px;
+	padding: 11px;
+}
+
+.signup .restore {
+	margin-right: 3px;
+}
+
+.login_password, .checking_data {
+	border-radius: 5px;
+	width: 160px;
+	border: 1px solid #9f1b1b;
+	font-weight: 300;
+	text-align: center;
+	padding: 5px 10px;
+	position: absolute;
+	left: 1.0rem;
+}
+
+.login_password {
+	top: 0;
+}
+
+.checking_data {
+	top: -2.0rem;
+}
+
+.checking_data a {
+	color: #9f1b1b;
+}
+
+span.help {
+	position: absolute;
+	/*float: right;*/
+	right: 40px;
+	cursor: pointer;
+	width: 17px;
+	height: 17px;
+	background: url(/css/img/help.png) no-repeat;
+	-webkit-transition: .4s;
+	transition: .4s;
+	z-index: 1;
+}
+
+span.help:hover {
+	background: url(/css/img/help_hover.png) no-repeat;
+}
+
+span.exi {
+	position: absolute;
+	float: right;
+	right: 15px;
+	top: 16px;
+	cursor: pointer;
+	width: 13px;
+	height: 13px;
+	background: url(/css/img/exit.png) no-repeat;
+	z-index: 1;
+}
+
+span.exi:hover {
+	background: url(/css/img/exit_hover.png) no-repeat;
+}
+
+.hint {
+	box-sizing: border-box;
+	position: absolute;
+	display: none;
+	color: #ffffff;
+	background: #888888;
+	left: -1.5rem;
+	width: 100%;
+	text-align: center;
+	font-weight: 300;
+	font-size: 1.0rem;
+	top: 2.7rem;
+	z-index: 200;
+	padding: 1.2em 0.8em 0.8em;
+}
+
+span.top {
+	top: -2px;
+	position: absolute;
+	font-weight: 300;
+	color: #333333;
+	font-size: 14px;
+	transition: .4s;
+}
+
+div.top {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.modal-content .fio span.top, .transport .modal-body .fio span.top {
+	left: 0;
+	top: -0px;
+}
+
+.fio {
+	margin-bottom: 35px;
+	width: 100%;
+	float: left;
+	margin-top: 30px;
+}
+
+span.top_2 {
+	top: -2px;
+	position: absolute;
+	font-weight: 300;
+	font-size: 14px;
+	color: #333333;
+}
+
+span.top_2_info {
+	left: 4px;
+}
+
+.country-flag-list .nice-select {
+	/*color: rgb(0, 0, 0);*/
+	font-family: Roboto;
+	padding-left: 0 !important;
+	border: none !important;
+	border-bottom: 1px solid #888888 !important;
+	border-radius: 0 !important;
+}
+
+.country-flag-list .nice-select .list {
+	min-width: 5.5rem !important;
+}
+
+.country-flag-list .nice-select .option {
+	padding-left: 5px !important;
+}
+
+.country-flag-list li.option {
+	position: relative !important;
+}
+
+.country-flag-list li.option:before {
+	content: '';
+	position: absolute;
+	width: 19px;
+	height: 12px;
+	right: 12px;
+	top: 14px;
+	background: url(/css/img/flags-xs.png) no-repeat;
+}
+
+.country-flag-list li.option:nth-child(2):before {
+	background-position: 0 -12px;
+}
+
+.country-flag-list li.option:nth-child(3):before {
+	background-position: 0 -24px;
+}
+
+.country-flag-list li.option:nth-child(4):before {
+	background-position: 0 -36px;
+}
+
+.country-flag-list li.option:nth-child(5):before {
+	background-position: 0 -48px;
+}
+
+span.password-show-update {
+	position: absolute;
+	width: 21px;
+	height: 18px;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	background-image: url(/css/img/pasword2.png);
+}
+
+span.password-show-update.eye-crossed {
+	background-image: url(/css/img/pasword.png);
+}
+
+.modal-body.entry_emeyl input {
+	margin-bottom: 0 !important;
+}
+
+.transport {
+	width: 420px;
+}
+
+.circulation {
+	padding-top: 4px;
+}
+
+.circulation_2 {
+	margin-top: 10px;
+}
+
+.circulation_2 .country {
+	width: 60%;
+}
+
+.circulation .country {
+	width: 60%;
+	top: 25px;
+}
+
+.modal-body .nice-select.form-control {
+	width: 99% !important;
+	border: none !important;
+	border-bottom: 1px solid #888888 !important;
+	border-radius: 0 !important;
+	padding-left: 0 !important;
+}
+
+.modal-body input.tel, .modal-body input.email {
+	margin-bottom: 0;
+	width: 220px !important;
+}
+
+.modal-body ul.list {
+	z-index: 200 !important;
+}
+
+.modal-content h3, .transport h3 {
+	font-weight: 700;
+	font-size: 21px;
+	text-align: center;
+	position: relative;
+	margin-top: 2.0rem;
+}
+
+.modal-content h3:before, .transport h3:before {
+	content: '';
+	width: 53px;
+	height: 2px;
+	background: #9f1b1b;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 35px;
+}
+
+.modal-content .btn-red, .transport .btn-red {
+	float: right;
+	width: 160px;
+	background: #9f1b1b;
+	padding: 10px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 18px;
+	border-radius: 50px;
+	border: 2px solid transparent;
+	cursor: pointer;
+}
+
+.modal-content .btn-red-no-float {
+	float: none;
+	margin-top: 0.5rem;
+	width: 130px;
+}
+
+.modal-content .btn-red:hover, .transport .btn-red:hover {
+	background: #ffffff;
+	border: 2px solid #9f1b1b;
+	color: #9f1b1b;
+}
+
+#feedback, #transport, #callback {
+	display: none;
+}
+
+.fancybox-outer {
+	background: #ffffff !important;
+}
+
+.fancybox-opened .fancybox-skin {
+	background: #ffffff;
+}
+
+.fancybox-skin {
+	padding: 0 !important;
+}
+
+.fancybox-close {
+	top: 16px !important;
+	right: 15px !important;
+	width: 13px !important;
+	height: 13px;
+	background: url(/css/img/exit.png) no-repeat !important;
+}
+
+.error {
+	padding: 10px;
+	width: 150px;
+	float: left;
+	text-align: center;
+	border: 1px solid #9f1b1b;
+	border-radius: 5px;
+}
+
+.sub span {
+	position: relative;
+	padding: 0 5px;
+	display: inline-block;
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.sub span:before {
+	color: #9f1b1b;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 100%;
+	content: attr(data-hover);
+	font-weight: 700;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.sub:hover span {
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+#popup {
+	left: 0;
+	position: fixed;
+	z-index: 995;
+	top: 0;
+	margin: 0 auto;
+	width: 100%;
+	display: none;
+	opacity: 0.9;
+	right: 0;
+
+}
+
+#popup .wrap {
+	display: inline-flex;
+	justify-content: space-around;
+	width: 80%;
+	padding-top: 82px;
+}
+
+#popup .wrap a,
+#popup .wrap a:focus {
+	font-weight: 300;
+	color: #ffffff;
+	font-size: 14px;
+}
+
+#popup .active > a {
+	font-weight: 500;
+	font-size: 16px;
+	color: #ffffff;
+
+}
+
+#popup .phone_box {
+	float: right;
+	width: 20%;
+	text-align: right;
+	margin-top: 5.9rem;
+	position: relative;
+}
+
+#popup .phone_box p {
+	font-weight: 500;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+#popup .phone_box a.text-small {
+	color: #ffffff;
+}
+
+#popup .phone_box a.phone {
+	font-weight: 400;
+	font-size: 19px;
+	color: #ffffff;
+	display: block;
+}
+
+.fancybox-outer {
+	border-radius: 8px !important;
+}
+
+@media (
+max-width: 991px) {
+	#entrance {
+		left: 247px !important;
+		top: 27px !important;
+	}
+
+	section.ex_11 .wrap {
+		width: 100%;
+	}
+
+	#popup {
+		left: 0 !important;
+		right: 0 !important;
+	}
+
+	#popup .wrap {
+		width: 100% !important;
+	}
+
+	section.ex_11 .phone_box, #popup .phone_box {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		width: 57%;
+	}
+
+	section.ex_11 .phone_box {
+		margin-bottom: 1.0rem;
+		margin-top: 1.0rem;
+	}
+
+	section.ex_11 .phone_box .zakaz_phone, #popup .phone_box .zakaz_phone {
+		display: inline-block;
+		float: none;
+	}
+}
+
+@media (
+max-width: 767px) {
+	header .phone {
+		font-size: 16px;
+	}
+
+	header .logo img {
+	}
+
+	header .logo {
+		text-align: center;
+	}
+
+	#entrance {
+		left: 230px !important;
+		top: 25px !important;
+	}
+}
+
+@media (
+max-width: 767px) {
+	#popup .wrap {
+		padding-top: 0 !important;
+	}
+
+	section.ex_11 .wrap, #popup .wrap {
+		display: block;
+		margin-bottom: 20px;
+	}
+
+	section.ex_11 .wrap dl {
+		text-align: center;
+		width: 100%;
+	}
+
+	section.ex_11 .phone_box {
+		text-align: center;
+		width: 100%;
+	}
+
+	section.ex_11 .phone_box a.zakaz_phone {
+		margin: 0 auto;
+		float: none;
+	}
+
+	section.ex_11 .wrap dt {
+		margin-bottom: 15px;
+	}
+
+	#popup {
+		/*left: -85% !important;*/
+	}
+
+	#popup .wrap ul {
+		width: 100%;
+		padding-left: 20px;
+	}
+
+	#popup .wrap ul li {
+		cursor: pointer;
+		margin-bottom: 15px;
+	}
+
+	#popup .wrap ul.show_1, #popup .wrap ul.show_2, #popup .wrap ul.show_3, #popup .wrap ul.show_4, #popup .wrap ul.show_5 {
+		display: none;
+		text-align: center;
+		width: 100%;
+		margin-top: 10px;
+		padding: 0;
+	}
+
+	#popup .phone_box {
+		float: none !important;
+		width: 100% !important;
+		margin: 0 auto !important;
+		text-align: center !important;
+		overflow: hidden !important;
+		padding: 0 !important;
+	}
+
+	#popup .phone_box a.zakaz_phone {
+		float: none !important;
+		margin: 0 auto;
+	}
+
+	#entrance {
+		top: 20px !important;
+	}
+
+	#exit, .signup {
+		right: -6px;
+	}
+
+	#popup .wrap {
+		display: block !important;
+		float: left !important;
+		margin-top: 50px;
+		text-align: center !important;
+		width: 100% !important;
+	}
+}
+
+@media (
+max-width: 575px) {
+	header .logo {
+		width: 100%;
+		text-align: center;
+	}
+
+	header .gamb {
+		left: 20px;
+		top: 13px;
+	}
+
+	#entrance {
+		left: 15px !important;
+		top: 20px !important;
+	}
+}
+
+@media (
+max-width: 575px) {
+	header .logo {
+		width: 100%;
+		text-align: center;
+	}
+
+	header .phone {
+		left: -65px;
+		top: 0;
+	}
+
+	header .gamb {
+		left: 20px;
+		top: 3px;
+	}
+
+	#entrance {
+		left: 15px !important;
+		top: 8px !important;
+	}
+
+	section.ex_11 .phone_box a.zakaz_phone {
+		width: 210px;
+		padding: 10px 0;
+
+	}
+
+	#exit, .signup, .restore_pasword {
+		width: 320px;
+	}
+
+	/* REMOVE */
+	.telephone input.tel, .entry_emeyl input {
+		padding-bottom: 12px;
+		margin-top: 40px;
+		margin-left: -20px;
+	}
+
+	.telephone label input .border, .entry_emeyl label input .border {
+		margin-left: -44px !important;
+	}
+
+	.modal-dialog, .transport {
+		width: initial;
+	}
+
+	.modal-body {
+		min-width: 280px;
+		width: initial;
+	}
+
+	.modal-bottom-block {
+		text-align: center;
+	}
+
+	#feedback-modal .telephone input.tel, #feedback-modal .entry_emeyl input,
+	#callback-modal .telephone input.tel, #callback-modal .entry_emeyl input {
+		padding-bottom: 10px;
+		margin-top: 40px;
+		margin-left: -30px;
+	}
+
+	#feedback-modal .telephone p, #feedback-modal .entry_emeyl p, #feedback-modal span.top, #feedback-modal .entry_emeyl span.top,
+	#callback-modal .telephone p, #callback-modal .entry_emeyl p, #callback-modal span.top, #callback-modal .entry_emeyl span.top,
+	.transport .telephone p, .transport .entry_emeyl p, .transport .telephone span.top, .transport .entry_emeyl span.top {
+		margin-left: -30px;
+	}
+
+	.modal-content .fio span.top, .transport .modal-body .fio span.top {
+		margin-left: 0 !important;
+	}
+
+	#popup .phone_box a.zakaz_phone {
+		width: 150px !important;
+		padding: 10px 0 !important;
+		font-size: 14px;
+	}
+
+	#popup section.ex_11 .wrap dt a, section.ex_11 .wrap dt a {
+		font-weight: 400;
+		font-size: 14px;
+	}
+
+	footer h4 {
+		font-size: 12px;
+		padding-top: 10px;
+	}
+
+	.modal-bottom-block .error-msg-popup-wrap {
+		float: none;
+	}
+
+	.modal-content .btn-red, .transport .btn-red {
+		margin: 10px 0;
+		width: 160px;
+		float: none;
+		font-weight: 500;
+		font-size: 16px;
+		padding: 10px;
+	}
+
+	.error {
+		padding: 10px;
+		width: 150px;
+		float: none;
+		margin: auto;
+	}
+}
+
+@media (max-width: 575px) {
+	header .logo {
+		width: 100%;
+		text-align: center;
+	}
+
+	#callback-modal .telephone input.tel, .entry_emeyl input {
+		margin-left: -30px;
+	}
+
+	#callback-modal .telephone p, #callback-modal .entry_emeyl p, #callback-modal .telephone span.top, .entry_emeyl span.top {
+		margin-left: -30px;
+	}
+}
+
+@media (max-width: 575px) {
+	header .phone {
+		left: -170px;
+		top: 3px;
+	}
+
+	#entrance {
+		left: 10px !important;
+		top: 10px !important;
+	}
+}
+
+.form-payment-table th {
+	width: 150px !important;
+}
+
+.form-payment-table .radio > label {
+	margin: 5px 0 5px;
+}
+
+.wait-screen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	font-weight: 300;
+	z-index: 9999;
+	transition: all 0.4s ease;
+	opacity: 0;
+}
+
+.wait-screen > h3 {
+	transition: all 0.3s ease;
+	color: #ffffff;
+	font-size: 24px;
+	text-align: center;
+	padding-bottom: 200px;
+}

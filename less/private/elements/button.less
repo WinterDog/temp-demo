@@ -1,0 +1,76 @@
+.btn-private {
+	&, &[disabled] {
+		border-radius: 0.3em;
+		font-weight: 600;
+		padding: 0.7em 1.2em;
+
+		@media (max-width: @screen-sm-max) {
+			padding: 0.5em 1.0em;
+		}
+
+		&.btn-muted {
+			&, &:focus {
+				background: @hsl-inactive;
+				border: @hsl-inactive;
+				color: #ffffff;
+			}
+			&:not([disabled]) {
+				&:hover {
+					background: darken(@hsl-inactive, 7%);
+					border: darken(@hsl-inactive, 7%);
+					color: #ffffff;
+				}
+				&:active {
+					background: darken(@hsl-inactive, 10%);
+					border: darken(@hsl-inactive, 10%);
+					color: #ffffff;
+					outline: none;
+				}
+			}
+		}
+
+		&.btn-empty {
+			&, &:focus {
+				background: none;
+				border: @hsl-inactive;
+				color: @hsl-inactive;
+			}
+			&:not([disabled]) {
+				&:hover {
+					background: darken(@hsl-inactive, 7%);
+					border: darken(@hsl-inactive, 7%);
+					color: #ffffff;
+				}
+				&:active {
+					background: darken(@hsl-inactive, 10%);
+					border: darken(@hsl-inactive, 10%);
+					color: #ffffff;
+					outline: none;
+				}
+			}
+		}
+
+		// Красная кнопка.
+		&.btn-primary {
+			&, &:focus {
+				background: @hsl-main;
+				border: @hsl-main;
+				color: #ffffff;
+				font-weight: 600;
+			}
+			&:not([disabled]) {
+				&:hover {
+					background: darken(@hsl-main, 7%);
+					border: darken(@hsl-main, 7%);
+					color: #ffffff;
+				}
+				&:active {
+					background: darken(@hsl-main, 10%);
+					border: darken(@hsl-main, 10%);
+					color: #ffffff;
+					outline: none;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,119 @@
+{% extends 'layout/Default.twig' %}
+
+{% block content %}
+	<div id="vue-app" v-cloak>
+		<h1>Пользователи</h1>
+
+		<table class="table table-hover table-sm table-striped">
+			<thead>
+				<tr>
+					<th>Имя пользователя</th>
+					<th>Логин / адрес эл. почты</th>
+					<th>Пароль создан</th>
+					<th>Блокировка</th>
+					<th>Последний вход</th>
+					<th>
+						<div class="float-right" :class="{ 'invisible': new_user.show }">
+							<button class="btn btn-success btn-xs" title="Создать нового пользователя" @click.left="addUser();">
+								Создать пользователя
+							</button>
+						</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-show="new_user.show" class="table-warning">
+					<td><input class="form-control form-control-sm" type="text" v-model="new_user.title"></td>
+					<td><input class="form-control form-control-sm" type="email" v-model="new_user.email"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<div class="float-right">
+							<button class="btn btn-success btn-xs" title="Создать пользователя" @click.left="submitNewUser();">
+								Создать
+							</button>
+							<button class="btn btn-danger btn-xs" title="Отменить создание пользователя" @click.left="cancelNewUser();">
+								Отменить
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr v-for="user in users" :class="{ 'table-primary': user.is_admin, 'text-muted': !user.is_active }">
+					<td><< user.title >></td>
+					<td><< user.email >></td>
+					<td>
+						<span class="fa fa-check text-success" v-show="user.password_hash"></span>
+						<span class="fa fa-times text-danger" v-show="!user.password_hash"></span>
+					</td>
+					<td>
+						<span class="fa fa-unlock text-success" title="Пользователь не заблокирован и МОЖЕТ входить в систему" v-show="user.is_active"></span>
+						<span class="fa fa-lock text-danger" title="Пользователь заблокирован и НЕ МОЖЕТ входить в систему" v-show="!user.is_active"></span>
+					</td>
+					<td><< user.last_login_date_f >></td>
+					<td>
+						<div class="float-right" v-if="!user.is_admin">
+							<button class="btn btn-success btn-xs" title="Создать пароль для учётной записи и отправить его на эл. почту" v-show="!user.password_hash" @click.left="resetPassword(user);">
+								Создать пароль
+							</button>
+							<button class="btn btn-warning btn-xs" title="Создать новый пароль для учётной записи и отправить его на эл. почту" v-show="user.password_hash" @click.left="resetPassword(user);">
+								Сбросить пароль
+							</button>
+							<button class="btn btn-primary btn-xs" title="Временно заблокировать вход данному пользователю" v-show="user.is_active" @click.left="setActive(user, false);">
+								Заблокировать
+							</button>
+							<button class="btn btn-primary btn-xs" title="Разблокировать вход данному пользователю" v-show="!user.is_active" @click.left="setActive(user, true);">
+								Разблокировать
+							</button>
+							<button class="btn btn-danger btn-xs" title="Удалить пользователя" @click.left="removeConfirm(user);">
+								Удалить
+							</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="alert alert-light" v-show="query">Подождите, выполняется операция...</div>
+		<div class="alert alert-danger" v-show="error"><< error >></div>
+
+		<!--
+		<h3>Импорт из файла</h3>
+		<p>В разработке.</p>
+		<dropzone id="dropzone" :options="dropzone_options" @vdropzone-complete="uploadComplete();"></dropzone>
+		-->
+
+		<div ref="modal" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Удаление пользователя</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Вы уверены, что хотите удалить пользователя?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" @click.left="remove(remove_user);">Удалить</button>
+						<button type="button" class="btn btn-light" data-dismiss="modal">Отмена</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block script %}
+	{{ parent() }}
+
+	<script>
+		(function ()
+		{
+			new AppUsers({
+				users: {{ users|json_encode|raw }},
+			});
+		})();
+	</script>
+{% endblock %}

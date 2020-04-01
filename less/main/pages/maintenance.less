@@ -1,0 +1,56 @@
+.header-container-maintenance {
+	overflow: hidden;
+}
+
+.content-wrap-maintenance {
+	margin-top: @header-height;
+
+	@media (max-width: @screen-md-max) {
+		margin-top: @header-height-md;
+	}
+	@media (max-width: @screen-xs-max) {
+		margin-top: @header-height-xs;
+	}
+	@media (max-width: @screen-xxs-max) {
+		margin-top: @header-height-xxs;
+	}
+}
+
+.top-block-maintenance {
+	min-height: 50.0rem;
+
+	@media (max-width: @screen-md-max) {
+		min-height: 40.0rem;
+	}
+	@media (max-width: @screen-sm-max) {
+		min-height: 32.0rem;
+	}
+	@media (max-width: @screen-xxs-max) {
+		min-height: 28.0rem;
+	}
+}
+
+.maintenance-header-filler {
+	background: url(/css/img/maintenance/tape.png) repeat no-repeat;
+	background-size: 6.0rem 2.0rem;
+	height: 2.0rem;
+	margin-left: 6.0rem;
+	transform: rotate(-40deg);
+	width: 13.0rem;
+
+	@media (max-width: @screen-md-max) {
+		background-size: 5.7rem 1.8rem;
+	}
+	@media (max-width: @screen-sm-max) {
+		background-size: 5.5rem 1.6rem;
+		margin-left: 0;
+	}
+	@media (max-width: @screen-xs-max) {
+		background-size: 5.0rem 1.4rem;
+		margin-left: 5.0rem;
+	}
+	@media (max-width: @screen-xxs-max) {
+		background-size: 4.5rem 1.2rem;
+		margin-left: 0;
+	}
+}

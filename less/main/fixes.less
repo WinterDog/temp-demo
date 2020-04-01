@@ -1,0 +1,78 @@
+/**
+ * Правки к плагинам, которые не вошли в существующие разделы.
+ */
+
+.modal-header {
+	border-bottom: none;
+}
+
+/*.modal-body {
+	padding: 1.5rem;
+}*/
+
+// Скрытый заголовок модального окна.
+// В слой с таким классом помещается текст, который при показе окна выводится в качестве заголовка.
+.modal-title-hidden {
+	display: none;
+}
+
+.modal-dialog-sm {
+	@media (min-width: 440px) {
+		width: 420px;
+	}
+}
+.modal-dialog-md {
+	@media (min-width: 520px) {
+		width: 500px;
+	}
+}
+.modal-dialog-lg {
+	@media (min-width: 820px) {
+		width: 800px;
+	}
+}
+.modal-dialog-xl {
+	@media (min-width: 1020px) {
+		width: 1000px;
+	}
+}
+.modal-body-free {
+	width: initial;
+}
+
+@media (min-width: 475px) and (max-width: @screen-xs-max) {
+	.modal-dialog {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Убираем двойную линию под <abbr>.
+abbr[title], abbr[data-original-title] {
+	text-decoration: none;
+}
+
+div.blockElement {
+	background: red;
+}
+
+.suggestions-wrapper {
+	display: inline;
+}
+
+.suggestions-constraints {
+	margin-top: -2px !important;
+
+	li {
+		font-size: 0.85rem;
+	}
+}
+
+.select2.select2-container {
+	width: 100% !important;
+}
+
+.nice-select .on-screen-fix {
+	bottom: 0;
+	top: initial;
+}

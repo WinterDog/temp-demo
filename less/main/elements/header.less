@@ -1,0 +1,596 @@
+/**
+ * Прошу прощения за названия классов - они взяты из исходного CSS, потом нужно будет поменять.
+ */
+
+.header-main {
+	&.header-main-front {
+		background: #ffffff;
+		box-shadow: rgba(0, 0, 0, 0.12) 0 0.15rem 0.2rem;
+		left: 0;
+		opacity: 0.98;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 100;
+	}
+
+	@media print {
+		display: none;
+	}
+	.modal-open & {
+		padding-right: 17px;
+	}
+}
+
+// Выделение кода в телефонном номере.
+.header-phone-code {
+	color: @color-main;
+}
+
+.header-container {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	height: @header-height;
+	margin: auto;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	position: relative;
+
+	@media (max-width: @screen-md-max) {
+		height: @header-height-md;
+		width: 100%;
+	}
+	@media (max-width: @screen-xs-max) {
+		height: @header-height-xs;
+	}
+	@media (max-width: @screen-xxs-max) {
+		height: @header-height-xxs;
+	}
+
+	@media (max-width: @screen-xs-max) {
+		justify-content: flex-start;
+	}
+
+	.header-phone-wrap {
+		margin-left: auto;
+		position: relative;
+
+		@media (max-width: @screen-sm-max) {
+			margin-left: 0;
+		}
+
+		.contact-element-wrap {
+			float: right;
+		}
+		.contact-element {
+			color: @color-text-moderate;
+			font-size: 0.97em;
+			margin-top: 0.1em;
+			position: relative;
+
+			@media (max-width: @screen-sm-max) {
+				display: none;
+			}
+
+			&:hover {
+				color: @color-main;
+			}
+		}
+		.contact-element-arrow {
+			margin-right: 0.55rem;
+			position: relative;
+
+			&:after {
+				content: '^';
+				//display: inline-block;
+				right: 0;
+				position: absolute;
+				top: -0.1rem;
+				transform: rotate(180deg) scaleX(2.2) scaleY(0.7);
+			}
+		}
+
+		.phone {
+			/*@media (max-width: @screen-xxs-max)
+			{
+				height: 25px;
+				width: 25px;
+			}*/
+		}
+		.header-phone-text {
+			@media (max-width: @screen-xxs-max) {
+				display: none;
+			}
+		}
+		.icon-header-phone {
+			display: none;
+			height: 2.0rem;
+			width: 2.0rem;
+
+			@media (max-width: @screen-xxs-max) {
+				display: block;
+			}
+		}
+	}
+
+	.header-phone-contacts-wrap {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		text-align: right;
+
+		.icon-contacts {
+			display: none;
+			height: 1.35rem;
+			width: 1.35rem;
+			margin: 0 0 0 0.6rem;
+
+			@media (max-width: @screen-sm-max) {
+				display: inline-block;
+			}
+			@media (max-width: @screen-xs-max) {
+				height: 1.5rem;
+				width: 1.5rem;
+			}
+			@media (max-width: @screen-xxs-max) {
+				height: 2.0rem;
+				margin: 0 0.7rem 0 0;
+				order: -1;
+				width: 2.0rem;
+			}
+		}
+	}
+
+	// Слой с кнопкой "Войти" и логином пользователя, когда он авторизован.
+	.header-user-wrap {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		justify-content: flex-end;
+		margin-left: auto;
+		max-width: 15.0rem;
+
+		@media (max-width: @screen-md-max) {
+			max-width: none;
+		}
+		@media (max-width: @screen-xxs-max) {
+			margin: 0 1.2rem;
+			order: -1;
+		}
+	}
+
+	.login-wrap {
+		.login-btn {
+			.btn {
+				@media (max-width: @screen-xxs-max) {
+					display: none;
+				}
+			}
+			.icon {
+				height: 2.0rem;
+				width: 2.0rem;
+
+				@media (min-width: @screen-xs-min) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.user-wrap {
+		align-items: center;
+		//bottom: 0;
+		display: flex;
+		//height: 4.0rem;
+		justify-content: flex-end;
+		//position: absolute;
+		//right: 0;
+		//text-align: right;
+		//top: 0;
+		width: 16.0rem;
+
+		@media (max-width: @screen-md-max) {
+			width: auto;
+		}
+
+		.user-btn {
+			display: flex;
+			justify-content: flex-end;
+
+			.user-btn-icon {
+				display: inline-block;
+				height: 1.2rem;
+				margin: 0.1em 0.1em 0 0;
+				width: 1.2rem;
+
+				@media (max-width: @screen-md-max) {
+					height: 3.0rem;
+					margin-top: 0;
+					width: 3.0rem;
+				}
+				@media (max-width: @screen-xxs-max) {
+					height: 2.0rem;
+					width: 2.0rem;
+				}
+			}
+			.user-name {
+				margin-left: 0.3rem;
+				text-decoration: underline;
+
+				@media (max-width: @screen-md-max) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.header-logo {
+	width: 18.0rem;
+
+	@media (max-width: @screen-md-max) {
+		margin-left: 0;
+		width: 17.0rem;
+	}
+	@media (max-width: @screen-sm-max) {
+		width: 15.0rem;
+	}
+	@media (max-width: @screen-xs-max) {
+		width: 13.0rem;
+	}
+	@media (max-width: @screen-xxs-max) {
+		margin: auto;
+		width: 12.0rem;
+	}
+}
+
+.header-menu-btn {
+	cursor: pointer;
+	display: block;
+	height: 1.8rem;
+	margin: 0 2.3rem 0.9rem;
+	min-height: 1.8rem;
+	min-width: 1.8rem;
+	position: relative;
+	width: 1.8rem;
+
+	.text {
+		color: @color-text-moderate;
+		font-size: 0.7rem;
+		left: -0.15rem;
+		position: absolute;
+		top: 1.8rem;
+	}
+
+	@media (max-width: @screen-md-max) {
+		margin: 0 2.1rem 0.9rem;
+	}
+	@media (max-width: @screen-md-max) {
+		margin: 0 2.0rem 0.9rem;
+	}
+	@media (max-width: @screen-sm-max) {
+		margin: 0 0 0.8rem auto;
+	}
+	@media (max-width: @screen-xxs-max) {
+		margin: 0 0 0.6rem 0;
+		order: -2;
+	}
+
+	&:hover {
+		.text {
+			color: @color-main;
+			transition: all 0.15s ease-out;
+		}
+	}
+}
+
+.header-menu-wrap {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 0.5;
+	justify-content: flex-start;
+
+	@media (max-width: @screen-sm-max) {
+		flex-direction: column;
+		flex-grow: 0;
+		margin: 0 auto;
+	}
+	@media (max-width: @screen-xxs-max) {
+		margin: 0 0 0 1.2rem;
+		order: 1;
+	}
+}
+
+.header-menu {
+	display: flex;
+	font-size: 1.1rem;
+	font-weight: 300;
+	justify-content: space-around;
+	list-style: none;
+	margin: -1.3rem 0 0 -1.2rem;
+
+	li {
+		padding: 0 0 0 1.2rem;
+		position: relative;
+
+		a {
+			color: #333333;
+			display: block;
+			position: relative;
+			transition: all 0.3s;
+			white-space: nowrap;
+
+			&:after {
+				content: '.';
+				font-size: 1.85em;
+				left: 0;
+				position: absolute;
+				top: 0.2em;
+
+				@media (max-width: @screen-sm-max) {
+					display: none;
+				}
+			}
+
+			&:hover {
+				color: @color-main;
+
+				&:after {
+					color: @color-main;
+				}
+			}
+		}
+		&:nth-child(2) a:after {
+			content: '..';
+		}
+		&:nth-child(3) a:after {
+			content: '...';
+		}
+		&:nth-child(4) a:after {
+			content: '....';
+		}
+	}
+
+	@media (max-width: @screen-md-max) {
+		margin: -1.3rem 0 0 -0.85rem;
+
+		li {
+			padding: 0 0 0 0.85rem;
+		}
+	}
+	@media (max-width: @screen-sm-max) {
+		font-size: 1.0em;
+		margin: 0 0 0 -0.75rem;
+		order: 1;
+
+		li {
+			padding: 0 0 0 0.75rem;
+		}
+	}
+	@media (max-width: @screen-xs-max) {
+		display: none;
+	}
+}
+
+.popover {
+	max-width: none;
+}
+
+.popover-content {
+	padding: 1.5rem;
+}
+
+.popup-wrap {
+	position: relative;
+
+	.modal-hint-btn {
+		right: -0.4rem;
+		top: -1.0rem;
+	}
+	.hint {
+		left: -1.7rem;
+		top: 0.4rem;
+		width: 28.3rem;
+
+		a {
+			color: @color-text-light;
+			text-decoration: underline;
+
+			&:focus,
+			&:hover {
+				color: @color-text-light;
+				text-decoration: underline;
+			}
+		}
+	}
+	.popup-header {
+		font-size: 1.4rem;
+		margin: 0 0 1.4em;
+	}
+	.captcha {
+		margin-bottom: 0.8rem;
+	}
+}
+
+.popup-wrap-fixed {
+	width: 25.0rem;
+}
+
+.popup-wrap-city {
+	.cities-find {
+		margin-bottom: 0;
+		width: 20.0rem;
+	}
+	.suggestions-list {
+		white-space: nowrap;
+	}
+	.city-search-result {
+		padding: 0.7rem 0 0.4rem;
+	}
+}
+
+.password-icon {
+	font-size: 1.6rem;
+	position: absolute;
+	top: 0;
+	right: 0.2em;
+
+	&.eye-crossed {
+		background-image: url(/css/img/pasword.png);
+	}
+}
+
+.main-menu-overlay, .user-menu-layer {
+	background: rgba(169, 52, 52, 1);
+	background: linear-gradient(135deg, rgba(169, 52, 52, 1) 0%, rgba(135, 75, 82, 1) 26%, rgba(104, 97, 108, 1) 50%, rgba(65, 124, 143, 1) 79%, rgba(45, 137, 160, 1) 100%);
+	display: none;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a93434', endColorstr='#2d89a0', GradientType=1);
+	height: 100%;
+	left: 0;
+	opacity: 0.97;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 900;
+}
+
+.user-menu-layer {
+	background: rgba(169, 52, 52, 0.8);
+	background: linear-gradient(135deg, rgba(169, 52, 52, 0.8) 0%, rgba(135, 75, 82, 0.8) 26%, rgba(104, 97, 108, 0.8) 50%, rgba(65, 124, 143, 0.8) 79%, rgba(45, 137, 160, 0.8) 100%);
+	opacity: 1;
+
+	.header-container {
+		justify-content: flex-end;
+	}
+
+	a {
+		color: @color-text-light;
+	}
+	.user-wrap a {
+		border-bottom-color: @color-text-light;
+	}
+	.user-menu-wrap {
+		position: absolute;
+		right: 1.0rem;
+		top: 0;
+		width: 13.0rem;
+
+		a {
+			color: @color-text-light;
+			display: block;
+			margin-top: 0.6rem;
+			padding: 0.4rem 0;
+			position: relative;
+			transition: all 0.3s;
+
+			&:before {
+				color: @color-text-light;
+				content: '^';
+				font-weight: 300;
+				position: absolute;
+				right: 0.2rem;
+				top: 0.5rem;
+				transform: rotate(90deg) scaleX(2.2) scaleY(1.0);
+				transition: all 0.3s;
+			}
+			&:hover {
+				border-bottom-color: #c2c2c2;
+
+				&:before {
+					color: #c2c2c2;
+				}
+			}
+		}
+
+		ul {
+			a {
+				border-bottom: 1px solid @color-text-light;
+			}
+		}
+		.exit-btn {
+			padding-left: 5.0rem;
+			position: relative;
+
+			&:before {
+				content: '';
+			}
+
+			.icon-exit {
+				height: 1.2rem;
+				position: absolute;
+				right: 0;
+				top: 0.55rem;
+				width: 1.2rem;
+			}
+		}
+	}
+}
+
+.header-phone {
+	color: @color-text-moderate;
+	font-size: 1.35em;
+	font-weight: 400;
+	white-space: nowrap;
+
+	&:focus {
+		color: @color-text-moderate;
+	}
+	@media (max-width: @screen-xs-max) {
+		font-size: 1.45em;
+	}
+
+	&.header-phone-sm {
+		font-size: 1.25em;
+
+		@media (max-width: @screen-md-max) {
+			font-size: 1.2em;
+		}
+		@media (max-width: @screen-xs-max) {
+			font-size: 1.35em;
+		}
+	}
+}
+
+.header-promo {
+	background: @color-main;
+	color: @color-text-light;
+	height: 2.3rem;
+	padding: 0.3em 0;
+	text-align: center;
+
+	a {
+		color: @color-text-light;
+
+		&:hover {
+			//color: @color-separator;
+		}
+
+		&.header-promo-close {
+			font-weight: 300;
+			opacity: 0.8;
+
+			.ion-ios-close-empty {
+				font-size: 1.7em;
+				line-height: 0;
+				margin-right: 0.2em;
+			}
+			.text-dashed {
+				border-bottom-color: @color-text-light;
+			}
+
+			&:hover {
+				opacity: 1.0;
+			}
+
+			@media (min-width: @screen-sm-min) {
+				margin-left: 0.5em;
+			}
+		}
+	}
+	@media (max-width: @screen-xs-max) {
+		flex-direction: column;
+	}
+}

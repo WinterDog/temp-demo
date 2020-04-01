@@ -1,0 +1,873 @@
+@import "calc-cargo.less";
+
+.alert-msg-border{
+	border: 1px solid @color-main;
+	border-radius: 0.3rem;
+	padding: 0.3em 0.6em;
+}
+
+.calc-lock-wrap {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-bottom: 6.0em;
+
+	h3 {
+		color: @color-main;
+		margin: 0 0 1.0em;
+	}
+
+	@media (max-width: @screen-sm-max) {
+		font-size: 0.8em;
+		justify-content: flex-start;
+	}
+}
+
+/* Чтобы не было пересечения с калькулятором на главной, используем section. */
+.calculator {
+	color: @color-text-dark;
+
+	.column-pad-l {
+		padding-right: 1.5rem;
+
+		@media (max-width: @screen-md-max) {
+			padding-right: 0.5rem;
+		}
+		@media (max-width: @screen-sm-max) {
+			padding-right: 0;
+		}
+	}
+	.column-pad-r {
+		padding-left: 1.5rem;
+
+		@media (max-width: @screen-md-max) {
+			padding-left: 0.5rem;
+		}
+		@media (max-width: @screen-sm-max) {
+			padding-left: 0;
+		}
+	}
+
+	.calc-step {
+		/*border-left: 1px dashed #888888;*/
+		/*padding: 0 0 2.5em 6.0em;*/
+		position: relative;
+
+		/*@media (max-width: @screen-md-max) {
+			margin-left: 0.5rem;
+			padding-left: 4.0rem;
+		}
+		@media (max-width: @screen-sm-max) {
+			margin-left: 0.5rem;
+			padding-left: 2.4rem;
+		}
+		@media (max-width: @screen-xs-max) {
+			margin-left: 0.7rem;
+			padding-left: 2.1rem;
+		}
+		@media (max-width: @screen-xxs-max) {
+			border-left: none;
+			margin-left: 0;
+			padding: 0 0 1.2em 0;
+		}*/
+		@media (max-width: @screen-xxs-max) {
+			padding-bottom: 1.2em;
+		}
+
+		&:not(:last-of-type) {
+			padding-bottom: 2.5em;
+		}
+	}
+
+	/* Заголовок шага. */
+	.step-header {
+		margin-bottom: 1.6em;
+		position: relative;
+
+		@media (max-width: @screen-xs-max) {
+			font-size: 0.65rem;
+			margin-bottom: 1.2em;
+		}
+
+		// Кружок с цифрой.
+		.header-index {
+			background: #888888;
+			border-radius: 50%;
+			// Элемент в шаблоне остался, просто скрыт.
+			display: none;
+			font-size: 1.3em;
+			left: -7.7rem;
+			position: absolute;
+			top: -0.4rem;
+			transition: all 0.3s;
+
+			@media (max-width: @screen-md-max) {
+				left: -5.7rem;
+			}
+			@media (max-width: @screen-sm-max) {
+				left: -4.1rem;
+			}
+			@media (max-width: @screen-xs-max) {
+				font-size: 1.6em;
+				left: -3.4em;
+			}
+			@media (max-width: @screen-xxs-max) {
+				display: none;
+			}
+
+			.header-index-inner {
+				align-items: center;
+				border: 1px solid #ffffff;
+				border-radius: 50%;
+				color: #ffffff;
+				display: flex;
+				font-weight: bold;
+				height: 2.3em;
+				justify-content: center;
+				margin: 3px; //0.15em;
+				text-align: center;
+				width: 2.3em;
+			}
+		}
+
+		.header-icon {
+			//background: url(img/pencil.png) no-repeat;
+			bottom: 0.6em;
+			height: 2.25em;
+			position: absolute;
+			right: 0;
+			transition: all 0.3s;
+			width: 2.25em;
+
+			@media (max-width: @screen-xs-max) {
+				bottom: 0.8em;
+			}
+		}
+		.header-icon-inactive {
+			opacity: 1.0;
+		}
+		.header-icon-active {
+			opacity: 0;
+		}
+		h2 {
+			border-bottom: 2px solid #888888;
+			font-size: 1.5em;
+			font-weight: 400;
+			margin: 0;
+			padding-bottom: 0.4em;
+			transition: all 0.3s;
+
+			@media (max-width: @screen-xs-max) {
+				font-size: 1.9em;
+			}
+		}
+		// Часть заголовка, на которую можно кликнуть, чтобы раскрыть или закрыть.
+		.step-header-trigger {
+		}
+	}
+	/* .step-header */
+
+	/* Шаг в раскрытом виде. */
+	.calc-step.active {
+		.step-header {
+			.header-index {
+				background: rgb(159, 27, 27);
+			}
+
+			.header-icon {
+				//background: url(img/pencil_hover.png);
+			}
+			.header-icon-inactive {
+				opacity: 0;
+			}
+			.header-icon-active {
+				opacity: 1.0;
+			}
+			h2 {
+				border-bottom: 2px solid #9f1b1b;
+			}
+			.step-header-trigger:hover {
+				.header-icon {
+					//background: url(img/pencil.png);
+				}
+				h2 {
+					border-bottom: 2px solid #888888;
+				}
+			}
+		}
+		.step-info {
+			height: auto;
+			//opacity: 0;
+			//z-index: 0;
+		}
+		.step-form {
+			z-index: 100;
+		}
+	}
+
+	/* Серый блок с краткой информацией о шаге. */
+	.step-info {
+		//height: 0;
+		//left: 7.0rem;
+		//opacity: 1;
+		//position: absolute;
+		//right: 0;
+		//transition: all 0.3s;
+		//z-index: 1;
+
+		.info-block-wrap {
+			background-color: #f7f7f7;
+			cursor: pointer;
+			padding: 1.0rem 1.2rem 0.7rem;
+
+			&:hover {
+				background-color: #ececec;
+			}
+		}
+		.info-block {
+			margin-bottom: 0.5em;
+		}
+		.info-value {
+			font-weight: 300;
+			overflow: hidden;
+			word-wrap: break-word;
+		}
+		.alert {
+			margin: 1.0em 0 0;
+		}
+
+		@media (max-width: @screen-xs-max) {
+			display: none !important;
+		}
+	}
+	.step-form {
+		h4 {
+			color: @color-text-dark;
+			font-size: 1.15em;
+			margin: 0 0 0.7em;
+
+			@media (max-width: @screen-xs-max) {
+				font-size: 1.075em;
+			}
+		}
+	}
+	/* .step-form */
+
+	.datetime-trigger-wrap {
+		bottom: 0.3em;
+		position: absolute;
+		right: 0;
+
+		.datetime-trigger {
+			color: @color-inactive;
+			font-family: 'Ionicons';
+			font-size: 1.5rem;
+
+			&:after {
+				content: '\f445';
+			}
+		}
+	}
+	.datetime-msg {
+
+		@media (min-width: @screen-md-min) {
+			max-width: 50%;
+			position: absolute;
+			right: 0;
+			top: 0.05rem;
+		}
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 0.8rem;
+		}
+	}
+
+	.extra-switch-wrap {
+		display: inline-block;
+		margin: 0.8em 0 0 0;
+
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 0;
+		}
+	}
+
+	.extra-services-info-wrap {
+		margin-top: 1.2rem;
+	}
+	.extra-services-form-wrap {
+		padding: 0.6em 0 0 0;
+	}
+	.extra-service-info {
+		border: 2px solid #9f1b1b;
+		border-radius: 2.0rem;
+		color: #9f1b1b;
+		float: left;
+		font-size: 0.92rem;
+		margin-right: 1.5em;
+		margin-bottom: 1.2em;
+		min-width: 14.8em;
+		padding: 0.27em 1.8em 0.33em;
+		text-align: center;
+		position: relative;
+
+		.extra-service-qty {
+			background: #efefef;
+			border-radius: 1.9em;
+			bottom: 0;
+			font-weight: bold;
+			left: 0;
+			min-width: 1.9em;
+			padding: 0.3rem;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			z-index: -1;
+		}
+		.extra-service-remove {
+			bottom: 0;
+			margin: auto 0;
+			position: absolute;
+			right: 0.45em;
+			top: -0.45em;
+
+			&:after {
+				content: '\00d7';
+				font-size: 2.0em;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.city-swap-btn {
+		font-size: 1.3em;
+		position: absolute;
+		right: -0.4em;
+		top: 2.0em;
+		z-index: 1;
+
+		@media (max-width: @screen-xs-max) {
+			display: none;
+		}
+	}
+
+	.hint-content {
+		display: table-row;
+
+		& > div {
+			display: table-cell;
+			float: none;
+			vertical-align: middle;
+		}
+		p {
+			margin: 0.5em 0;
+		}
+	}
+	.popover {
+		max-width: none;
+		width: 35.0rem;
+	}
+
+	.phone-add {
+		display: block;
+		margin: 1.6rem 0 0 0.3rem;
+
+		@media (max-width: @screen-xs-max) {
+			margin: 0 0 1.0rem 0;
+		}
+
+		&:after {
+			background: url(/css/img/on_2.png) no-repeat;
+			content: '';
+			display: inline-block;
+			height: 24px;
+			margin-bottom: 0.3rem;
+			margin-left: 0.3rem;
+			transition: 0.4s;
+			width: 24px;
+			vertical-align: middle;
+		}
+
+		&:hover, &:focus {
+			&:after {
+				background-image: url(/css/img/on_3.png);
+			}
+		}
+	}
+	.phone-remove {
+		display: block;
+		float: right;
+		margin-bottom: 0.5rem;
+		margin-top: 0.1rem;
+	}
+
+	.payer-wrap {
+		margin-top: 2.1em;
+
+		@media (max-width: @screen-xs-max) {
+			margin-top: 0;
+		}
+	}
+	h4.payer-header {
+		margin-bottom: 1.5rem;
+	}
+	.payer-empty-field-link {
+		margin-right: 0.6em;
+	}
+
+	.contact-person-header-wrap {
+		align-items: center;
+		display: flex;
+		justify-content: flex-start;
+		margin: 0.2rem 0 0.9rem;
+
+		h5 {
+			color: @color-text-dark;
+			margin: 0;
+		}
+		.icon {
+			font-family: 'Ionicons';
+			font-size: 1.5rem;
+			margin-left: 0.5em;
+		}
+		.icon-info {
+			color: @color-inactive;
+
+			&:after {
+				content: '\f445';
+			}
+		}
+		.icon-clear {
+			color: @color-main;
+
+			&:after {
+				content: '\f405';
+			}
+		}
+	}
+
+	// Убираем пунктирную границу у последнего шага.
+	.calc-step-total {
+		border-left: none;
+	}
+
+	/* Шаг 6 */
+	.calculator-result {
+		min-height: 8.0rem;
+		position: relative;
+	}
+	.total-header-wrap {
+		max-width: 26.5rem;
+	  	margin-bottom: 1em;
+
+		@media (max-width: @screen-xs-max) {
+			font-size: 0.8em;
+		}
+	}
+	.total-header {
+		color: @color-text-dark;
+		font-size: 1.6em;
+		font-weight: 400;
+
+		@media (max-width: @screen-xs-max) {
+			font-size: 1.4em;
+		}
+	}
+	.total-sum {
+		margin: 0 0.7em 0 auto;
+		text-align: right;
+	}
+
+	.total-services-header {
+		border-bottom: 1px solid @color-main;
+		margin-top: 0.7em;
+		padding: 0.5em 0;
+
+		.total-services-header-icon {
+			display: inline-block;
+			height: 1.2rem;
+			margin-left: 0.5rem;
+			vertical-align: middle;
+			width: 1.2rem;
+
+			@media (max-width: @screen-xs-max) {
+				//margin-left: 0;
+				//margin-right: 0.7rem;
+			}
+		}
+		.total-link {
+			background-image: url(/css/img/calc-link.png);
+			height: 23px;
+			width: 22px;
+
+			&:hover {
+				background-image: url(/css/img/calc-link-h.png);
+			}
+		}
+	}
+	.total-services-wrap {
+		border-bottom: 1px solid @color-main;
+	}
+	.total-service {
+		margin: 0.65em 0;
+	}
+	.total-cargo {
+		margin: 0.55em 0;
+	}
+	.graph-header {
+		color: @color-text-dark;
+		font-size: 1.1em;
+		font-weight: 400;
+		margin: 0 0 1.0em;
+
+		@media (max-width: @screen-xs-max) {
+			margin: 1.1em 0 0.7em;
+		}
+	}
+	.graph-item {
+		padding-left: 1.6em;
+		position: relative;
+
+		@media (max-width: @screen-sm-max) {
+			margin-bottom: 0.4em;
+		}
+
+		.graph-icon {
+			display: inline-block;
+			height: 0.9em;
+			left: 0;
+			position: absolute;
+			top: 0.05em;
+			width: 0.9em;
+		}
+		.graph-pickup,
+		.graph-delivery {
+			height: 1.1em;
+			left: -0.1em;
+			top: 0.15em;
+			width: 1.1em;
+		}
+		.graph-departure,
+		.graph-arrival {
+		}
+
+		.graph-date {
+			display: inline-block;
+			font-weight: 600;
+			margin-right: 0.4em;
+		}
+	}
+	.graph-arrow {
+		height: 2.0em;
+		margin: 0.05em 0 0 -0.55em;
+		opacity: 0.7;
+		transform: scaleX(0.4);
+		width: 2.0em;
+
+		@media (max-width: @screen-sm-max) {
+			display: none;
+		}
+	}
+
+	/* Плавающая панель внизу. */
+	.total-sticky-panel-wrap {
+		bottom: 0;
+		left: 0;
+		opacity: 0;
+		padding: 0;
+		position: fixed;
+		right: 0;
+		transition: all 0.2s;
+		visibility: hidden;
+		z-index: 1;
+
+		&.sticky-visible {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		@media (max-width: @screen-xs-max) {
+			display: none;
+			padding: 0;
+		}
+		@media (max-width: @screen-xxs-max) {
+		}
+	}
+	.total-sticky-panel {
+		background: #ececec;
+		border: 1px solid #b8b8b8;
+		border-bottom: none;
+		box-shadow: rgba(0, 0, 0, 0.25) 0 0 0.5rem;
+		/*margin-left: 3.85rem;*/
+		/*padding: 0.7rem 1.0rem;*/
+		padding: 1.2rem 1.0rem;
+
+		@media (max-width: @screen-sm-max) {
+			/*margin-left: 0.75rem;*/
+		}
+		@media (max-width: @screen-xs-max) {
+			/*margin-left: 3.3rem;*/
+			padding: 0.5rem;
+		}
+		@media (max-width: @screen-xxs-max) {
+			/*margin-left: 0;*/
+			padding: 0.3rem 0.3rem 0.3rem 1.0rem;
+		}
+		.total-graph-arrival-date, .total-graph-delivery-date {
+			text-align: center;
+		}
+		.sticky-graph-item {
+			min-width: 8.0em;
+
+			.graph-date {
+				font-weight: 600;
+				margin-top: 0.2rem;
+				min-height: 1.5em;
+			}
+		}
+	}
+	// Слой вокруг блока с предварительным расчётом.
+	.total-sticky-sum-wrap {
+		position: relative;
+		width: 26.25rem;
+	}
+
+	.error-wrap {
+		margin-top: 1.6em;
+		min-height: 1.5em;
+		text-align: center;
+
+		.alert {
+			margin: 0;
+			transition: all 1.0s;
+		}
+		.alert-danger {
+			transition: none;
+		}
+	}
+
+	/*.form-group {
+		input {
+			color: @color-text-dark;
+			font-size: 1.0rem;
+		}
+	}*/
+
+	h6 {
+		color: @color-text-moderate;
+	}
+
+	// Минимальная ширина кнопки сабмита, чтобы она не прыгала, когда текст внутри меняется.
+	.btn-calc-submit {
+		min-width: 11.4em;
+	}
+}
+
+// Карта во всплывающем окне (показ и выбор адреса).
+.map-wrap {
+	height: 600px;
+	//width: 600px;
+}
+
+.modal-header-map {
+	padding-bottom: 0;
+}
+
+.modal-map-address-wrap {
+	align-items: flex-start;
+	display: flex;
+	justify-content: flex-start;
+	margin: 1.0em 0 0;
+
+	.modal-map-address {
+		align-items: flex-start;
+		display: flex;
+		margin: 0.5em 1.0em 0 0;
+	}
+	.modal-map-address-label {
+		margin-right: 0.8em;
+	}
+	.modal-map-address-text {
+		//min-height: 2.8em;
+		text-align: left;
+	}
+	.btn {
+		margin: 0 1.0em 0 auto;
+	}
+}
+
+// Форма для создания аккаунта (ЛК).
+.calc-account-form {
+	.btn-block {
+		margin: 0;
+	}
+}
+
+.calc-account-confirm-wrap {
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+	margin: 0.5em 0 1.5em;
+
+	.alert {
+		flex: 1;
+		font-size: 0.9em;
+		margin: 0;
+		padding: 0.5em 1em;
+	}
+	.password-wrap {
+		margin: 0 1.0em;
+		width: 8.0em;
+	}
+	.text-wrap {
+		width: 12.0em;
+	}
+}
+
+.calc-action-link {
+	&.inactive {
+		color: @color-inactive;
+
+		&:hover {
+			color: @color-inactive;
+		}
+	}
+}
+
+.calc-success-modal-inline {
+	margin: 0 auto 3.0em;
+	text-align: center;
+}
+
+.calc-btn-sm {
+	align-items: center;
+	border: 0.1em solid @color-main;
+	border-radius: 50%;
+	display: flex;
+	font-family: 'Ionicons';
+	font-size: 1.2em;
+	height: 1.2em;
+	justify-content: center;
+	line-height: 0.75;
+	text-align: center;
+	width: 1.2em;
+}
+
+.calc-btn-sm-add {
+	&:after {
+		content: '\f2c7';
+	}
+	&:hover {
+		background: @color-main;
+		color: #ffffff;
+	}
+}
+
+.calc-btn-sm-remove {
+	border-color: @color-inactive;
+	color: @color-inactive;
+
+	&:after {
+		content: '\f2f4';
+	}
+	&:hover {
+		border-color: @color-main;
+		color: @color-main;
+	}
+}
+
+.calc-info-btn {
+	color: @color-inactive;
+	font-size: 1.65rem;
+	margin-left: 0.3em;
+
+	&:focus, &:hover {
+		color: @color-inactive;
+	}
+}
+
+.input-with-btn-wrap {
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+
+	& > *:first-child {
+		width: 100%;
+	}
+}
+
+dl.calc-info-list {
+	font-size: 0.97em;
+	margin: 0;
+
+	dt {
+		float: left;
+		font-weight: normal;
+
+		@media (max-width: @screen-xs-max) {
+			float: initial;
+			margin-bottom: 0.3em;
+		}
+	}
+	dd {
+		margin: 0 0 0.2em 7.0em;
+
+		&:after {
+			clear: both;
+			content: '';
+			display: table;
+		}
+	}
+}
+
+/*.btn-red-animated
+{
+	border: 3px solid #9f1b1b;
+	border-radius: 3.0rem;
+	font-size: 1.15rem;
+	font-weight: 600;
+	padding: 0;
+
+	.inner-wrap
+	{
+		background: #9f1b1b;
+		border: 2px solid #ffffff;
+		border-radius: 3.0rem;
+		overflow: hidden;
+		position: relative;
+		transform: translateY(0);
+		transition: all 0.3s;
+
+		.btn-text
+		{
+			color: #ffffff;
+			padding: 0.8rem;
+			transform: translateY(0);
+			transition: all 0.3s;
+
+			&:after
+			{
+				bottom: -100%;
+				content: attr(data-hover);
+				color: #9f1b1b;
+				height: 100%;
+				left: 0;
+				padding: 0.8rem;
+				position: absolute;
+				right: 0;
+			}
+		}
+	}
+
+	&:hover
+	{
+		.inner-wrap
+		{
+			background: #ffffff;
+
+			.btn-text
+			{
+				transform: translateY(-100%);
+			}
+		}
+	}
+}*/

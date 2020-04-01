@@ -1,0 +1,191 @@
+// Убираем синее выделение кнопок.
+.btn, .btn:focus {
+	outline: none;
+}
+/* Кастомные кнопки. */
+.btn-link,
+.btn-submit,
+.btn-transparent {
+	&, &:focus {
+		border-radius: 2.0rem;
+		border-style: solid;
+		border-width: 3px;
+		display: inline-block;
+		font-size: 1.15rem;
+		font-weight: 700;
+		padding: 10px 2.0rem;
+		text-decoration: none;
+		vertical-align: top;
+
+		@media (max-width: @screen-xs-max) {
+			border-width: 2px;
+			padding: 8px 1.6rem;
+		}
+	}
+
+	&.btn-xs {
+		border-width: 2px;
+		font-size: 1.0rem;
+		padding: 5px 1.3rem;
+	}
+	&.btn-sm {
+		border-width: 2px;
+		font-size: 1.1rem;
+		padding: 7px 1.5rem;
+	}
+	&.btn-lg {
+		border-width: 3px;
+		font-size: 1.3rem;
+		height: 58px;
+		padding: 13px 3.0rem;
+
+		@media (max-width: @screen-xs-max) {
+			font-size: 1.2rem;
+			height: 48px;
+			padding: 10px 2.5rem;
+		}
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+// Белая кнопка с анимацией в красный.
+.btn-link {
+	&, &:focus {
+		background: @color-text-light;
+		border-color: @color-main;
+		color: @color-main;
+		transition: all 0.4s ease-out;
+	}
+
+	&:hover {
+		background: @color-main;
+		border-color: transparent;
+		box-shadow: inset 0 0 0 30px @color-main;
+		color: @color-text-light;
+	}
+
+	&.btn-light {
+		background: transparent;
+		border-color: @color-text-light;
+		color: @color-text-light;
+
+		&:hover {
+			border-color: @color-main;
+		}
+	}
+}
+
+// Красная кнопка с анимацией в белый.
+.btn-submit {
+	&, &:focus {
+		background: @color-main;
+		border-color: transparent;
+		color: @color-text-light;
+		transition: all 0.4s ease-out;
+	}
+
+	&:hover {
+		background: @color-text-light;
+		border-color: @color-main;
+		box-shadow: inset 0 0 0 30px @color-text-light;
+		color: @color-main;
+		transition: all 0.4s ease-out;
+	}
+
+	/* Неактивные кнопки. */
+	&.inactive,
+	&[disabled] {
+		background-color: @color-inactive;
+		color: @color-text-light;
+		transition: none;
+
+		&:hover {
+			background-color: @color-inactive;
+			border-color: @color-inactive;
+			box-shadow: none;
+			color: @color-text-light;
+		}
+	}
+	&[disabled] {
+		cursor: not-allowed;
+	}
+}
+
+// Прозрачная кнопка с белой границей, анимируется в красный.
+// Используется пока только в верхней части на главной.
+.btn-transparent {
+	&, &:focus {
+		background: none;
+		border-color: @color-text-light;
+		border-width: 1px;
+		color: @color-text-light;
+		padding-bottom: 12px;
+		padding-top: 12px;
+		transition: all 0.4s ease-out;
+	}
+
+	&:hover {
+		background: @color-main;
+		border-color: transparent;
+		box-shadow: inset 0 0 0 30px @color-main;
+		color: @color-text-light;
+	}
+}
+
+// Кнопка добавления / удаления (например, телефона или эл. адреса), выровненная по соседнему инпуту.
+.btn-input-aligned {
+	margin: 1.2rem 0 0 0.5rem;
+}
+
+.btn-main, .btn-alt {
+	&.btn-lg {
+		padding-left: 1.8em;
+		padding-right: 1.8em;
+	}
+}
+
+// Изменённая основная кнопка - красная.
+.btn-main {
+	background-color: @color-main;
+	border-color: darken(@color-main, 5%);
+	color: @color-text-light;
+
+	&:active, &:focus, &:hover {
+		background-color: darken(@color-main, 10%);
+		border-color: darken(@color-main, 15%);
+		color: @color-text-light;
+	}
+	&:focus {
+		border-color: darken(@color-main, 30%);
+	}
+	&:active:focus {
+		background-color: darken(@color-main, 15%);
+	}
+}
+
+// Альтернативная кнопка - синяя.
+.btn-alt {
+	background-color: @color-alt;
+	border-color: darken(@color-alt, 5%);
+	color: @color-text-light;
+
+	&:active, &:focus, &:hover {
+		background-color: darken(@color-alt, 10%);
+		border-color: darken(@color-alt, 15%);
+		color: @color-text-light;
+	}
+	&:focus {
+		border-color: darken(@color-alt, 30%);
+	}
+	&:active:focus {
+		background-color: darken(@color-alt, 15%);
+	}
+}
+
+// Для больших кнопок делаем стандартный шрифт.
+.btn-lg {
+	font-size: 1.0rem;
+}

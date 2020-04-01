@@ -1,0 +1,102 @@
+/**
+ * Лейблы заказов. Можно также использовать для оплат, претензий и т. п.
+ */
+
+.status-label {
+	.label {
+		min-width: 5.3em;
+	}
+}
+.status-label-lg {
+	.label {
+		min-width: 7.7em;
+	}
+}
+.status-label-xl {
+	.label {
+		min-width: 8.5em;
+	}
+}
+.label-lg-wrap {
+	margin-top: 0.7em;
+	text-align: center;
+
+	.label-text {
+		font-size: 1.15em;
+		padding: 0.25em;
+	}
+}
+
+.label {
+	&.label-alarm {
+		background: #e05d1f;
+	}
+	&.label-inverse {
+		background: #ffffff;
+		color: #777777;
+	}
+}
+
+// Специальные цвета для статусов заказов. Используются не только для лейблов, но и на форме проверки статуса, например.
+.label-draft {
+	background: transparent !important;
+	color: hsl(0, 0%, 55%) !important;
+}
+.label-new {
+	background: hsl(0, 0%, 55%) !important;
+}
+.label-open {
+	background: hsl(0, 0%, 55%) !important;
+}
+.label-pickup {
+	background: #00aa9d !important;
+}
+.label-store {
+	background: #5bc0de !important;
+}
+.label-trip {
+	background: #ee3030 !important;
+}
+// Класс с подчёркиванием добавлен, чтобы можно было использовать название статуса для генерации класса.
+.label-dep-store, .label-dep_store {
+	background: #f1ac4d !important;
+}
+.label-delivery {
+	background: #c69b6e !important;
+}
+.label-closed {
+	background: #5bb85d !important;
+}
+.label-return {
+	background: #e05d1f !important;
+}
+
+// Границы иконок-статусов на форме проверки статуса заказа.
+.border-status-new {
+	border-color: hsl(0, 0%, 55%) !important;
+}
+.border-status-open {
+	border-color: hsl(0, 0%, 55%) !important;
+}
+.border-status-pickup {
+	border-color: #00aa9d !important;
+}
+.border-status-store {
+	border-color: #5bc0de !important;
+}
+.border-status-trip {
+	border-color: #ee3030 !important;
+}
+// Класс с подчёркиванием добавлен, чтобы можно было использовать название статуса для генерации класса.
+.border-status-dep-store, .border-status-dep_store {
+	border-color: #f1ac4d !important;
+}
+.border-status-delivery {
+	border-color: #c69b6e !important;
+}
+.border-status-closed {
+	border-color: #5bb85d !important;
+}
+.border-status-return {
+	border-color: #e05d1f !important;
+}

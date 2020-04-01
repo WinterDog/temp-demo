@@ -1,0 +1,60 @@
+.packing-bordered-block {
+	border: 1px solid @color-separator;
+	border-radius: 0.5rem;
+	min-height: 7.0em;
+	padding: 0.9em 1.1em;
+	position: relative;
+
+	&.packing-bordered-block-text {
+		padding: 1.35em 1.1em 1.45em;
+
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 1.0em;
+		}
+	}
+
+	.icon {
+		height: 5.35em;
+		left: 14.8em;
+		opacity: 0.08;
+		position: absolute;
+		top: 0.7em;
+		width: 5.35em;
+		z-index: 0;
+	}
+
+	.price-list {
+		list-style: none;
+		margin: 0 0 0.3em 0;
+		padding: 0;
+		position: relative;
+		z-index: 1;
+
+		li {
+			align-items: baseline;
+			color: @color-text-darker;
+			display: flex;
+			font-weight: bold;
+			justify-content: flex-start;
+			line-height: 1;
+
+			&:not(:last-child) {
+				margin-bottom: 1.0em;
+			}
+
+			span {
+				display: inline-block;
+				font-weight: normal;
+				width: 13.5em;
+			}
+			strong {
+				font-size: 1.8em;
+				margin-right: 0.2em;
+			}
+		}
+	}
+}
+
+.packing-slide {
+	padding: 0 1.0em 0 2.5em;
+}

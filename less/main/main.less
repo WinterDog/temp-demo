@@ -1,0 +1,302 @@
+@charset "utf-8";
+/**
+ * Основной файл, объединяющий все less-ы вместе. Здесь критичные стили, влияющие на структуру страницы.
+ */
+
+// Старые стили шапки и футера. В идеале нужно разобрать и удалить.
+@import (less) "h_f_p_styles.css";
+
+// Переменные.
+@import "../config";
+@import "../mixins";
+
+// Корневые элементы.
+@import "html";
+
+// Flex.
+@import "flex/flex";
+@import "flex/flex-grid";
+
+// Элементы.
+@import "elements/a";
+@import "elements/font-face";
+@import "elements/footer";
+@import "form/form";
+@import "elements/h";
+@import "elements/header";
+@import "elements/icons";
+@import "elements/label";
+@import "elements/list";
+@import "elements/p";
+@import "elements/pagination";
+@import "elements/slider";
+@import "elements/table";
+@import "elements/tabs";
+
+// Формы (инпуты, селекты и т. п.).
+@import "form/button";
+@import "form/checkbox-radio";
+@import "form/select";
+
+// Блоки.
+@import "blocks/alert";
+@import "blocks/branches-map";
+@import "blocks/info-block";
+@import "blocks/menu";
+@import "blocks/mini-calc";
+@import "blocks/mini-status-wrap";
+@import "blocks/order-status-form";
+@import "blocks/services";
+
+// Плагины.
+@import "datetimepicker";
+@import "lukehaas-load5";
+@import "fixes";
+@import "popover";
+@import "tablesorter";
+
+// Хелперы.
+@import "helpers/group";
+@import "helpers/height";
+@import "helpers/helpers";
+@import "helpers/margin";
+@import "helpers/padding";
+@import "helpers/position";
+@import "helpers/text";
+@import "helpers/vue";
+@import "helpers/width";
+
+// Отдельные страницы.
+@import "pages/404";
+@import "pages/about";
+@import "pages/autoforwarding";
+@import "pages/calc";
+@import "pages/contact";
+@import "pages/contacts";
+@import "pages/distance";
+@import "pages/docs";
+@import "pages/franchising";
+@import "pages/front-page";
+@import "pages/maintenance";
+@import "pages/news";
+@import "pages/order-status";
+@import "pages/packing";
+@import "pages/partners";
+@import "pages/payment";
+@import "pages/safe-storage";
+@import "pages/schedule";
+@import "pages/services-general";
+@import "pages/services-organizations";
+@import "pages/services-pallet";
+@import "pages/services-province";
+@import "pages/services-return";
+@import "pages/unsunbscribe";
+
+// Исправляем кривую высоту строк, если в тексте используется <sup> / <sub>.
+sup, sub {
+	position: relative;
+	top: -0.4em;
+	vertical-align: baseline;
+}
+sub {
+	top: 0.4em;
+}
+
+a:focus,
+a:hover {
+	text-decoration: none;
+}
+
+@media (max-width: @screen-xxs-max) {
+	.hidden-xxs {
+		display: none !important;
+	}
+}
+
+.hidden-fade {
+	opacity: 1;
+	transition: opacity 0.2s;
+
+	&.hidden {
+		display: block !important;
+		opacity: 0;
+	}
+}
+
+header .registr .user .user-btn {
+	opacity: 1;
+	/*transition: all 0.3s;*/
+
+	&.active {
+		opacity: 0;
+	}
+
+	@media (max-width: 830px) {
+		background-repeat: no-repeat;
+		background-image: url(/css/img/user.png);
+		background-size: auto 100%;
+		border-bottom: none;
+		display: block;
+		height: 38px;
+		margin-top: -12px;
+		width: 38px;
+
+		&:before {
+			display: none;
+		}
+
+		span {
+			display: none;
+		}
+	}
+	@media (max-width: 475px) {
+		height: 29px;
+		margin-top: -10px;
+		width: 29px;
+	}
+}
+
+.message-box-wrap {
+	position: relative;
+}
+
+.error-msg-popup-wrap {
+	float: left;
+}
+
+.nice-select {
+	float: none;
+
+	.option {
+		padding-right: 8px;
+	}
+}
+
+.popup-place {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 9999;
+}
+
+// Фиг знает, что это вообще.
+/*.via-email {
+	margin-left: 113px;
+}*/
+
+// Результат в окне "Срок перевозки груза".
+.schedule-result {
+	background: rgb(242, 242, 242);
+	border: 1px solid rgb(195, 195, 195);
+	margin: 1.2em 0 1.4em;
+	padding: 0.5em 0.7em;
+
+	.row-float {
+		.clearfix();
+		margin-bottom: 0.4em;
+		margin-top: 0.4em;
+
+		.col-left {
+			float: left;
+		}
+		.col-right {
+			float: right;
+		}
+	}
+}
+
+.popup-message {
+	font-size: 1.3rem;
+	padding: 0 0 1.0em 0;
+}
+
+.msg {
+	border-radius: 5px;
+	font-size: 0.9rem;
+	padding: 0.45rem 0.7rem;
+
+	&.error-msg {
+		border: 1px solid #9f1b1b;
+	}
+	&.success-msg {
+		background-color: #dff0d8;
+		border: 1px solid #d6e9c6;
+		color: #3c763d;
+	}
+}
+
+/* Добавления от Димы */
+.margin-bottom-25 {
+	margin-bottom: 25px;
+}
+
+.update-step {
+	width: 100%;
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 30px 0 0;
+}
+
+.update-step > li {
+	flex: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	font-size: 13px;
+	background-color: #ffffff;
+	color: #777777;
+	border: 2px solid #777777;
+	text-align: center;
+	line-height: 20px;
+	padding: 0;
+	margin: 0 5px 0;
+}
+
+.update-step > li.active {
+	background-color: #337ab7;
+	color: #ffffff;
+	border: 2px solid #337ab7;
+}
+
+#update-step-1 {
+	display: block;
+}
+
+#update-step-2 {
+	display: none;
+}
+
+.popup-place > .modal-content {
+	flex: none;
+}
+
+// Предупреждение при регистрации об обработке персональных данных.
+.conditions-warning {
+	color: @color-inactive;
+	font-size: 85%;
+}
+
+.know-password-wrap {
+	margin-top: 1.4em;
+}
+
+.adv-only {
+	display: none;
+}
+
+.row-eq-height  {
+	@media (min-width: @screen-sm-min) {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+}

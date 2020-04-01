@@ -1,0 +1,50 @@
+.safe-storage-services {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	height: 18.0rem;
+	justify-content: center;
+
+	@media (max-width: @screen-md-max) {
+		flex-wrap: wrap;
+		height: auto;
+	}
+	@media (max-width: @screen-xxs-max) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+
+	.service {
+		@media (max-width: @screen-md-max) {
+			margin-bottom: 0.8rem;
+			width: 14.0rem;
+		}
+		@media (max-width: @screen-sm-max) {
+			width: 12.5rem;
+		}
+		@media (max-width: @screen-xs-max) {
+		}
+		@media (max-width: @screen-xxs-max) {
+			max-width: 20.0rem;
+			width: auto;
+		}
+
+		.icon {
+			height: 4.2rem;
+			margin-bottom: 0.5rem;
+			width: 4.2rem;
+
+			@media (max-width: @screen-xs-max) {
+				height: 3.0rem;
+				width: 3.0rem;
+			}
+		}
+	}
+	.safe-storage-service-alt {
+		align-self: flex-end;
+
+		@media (max-width: @screen-md-max) {
+			align-self: flex-start;
+		}
+	}
+}

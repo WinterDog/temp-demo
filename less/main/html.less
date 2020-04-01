@@ -1,0 +1,158 @@
+html, body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	color: #333333;
+	font-display: swap;
+	font-family: 'Roboto', Helvetica, Arial;
+	font-size: 14px;
+	height: 100vh;
+	height: 100%;
+	margin: 0;
+
+	@media (max-width: @screen-xs-max) {
+		font-size: 13px;
+	}
+}
+
+html {
+	//overflow: hidden;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	position: relative;
+
+	&.scroll-y {
+		overflow-y: scroll;
+	}
+}
+
+// Обёртка вокруг всего контента (т. е. body без шапки и футера).
+.content-wrap {
+	flex: 1 0 auto;
+	margin-top: @header-height + @extra-margin;
+
+	@media (max-width: @screen-md-max) {
+		margin-top: @header-height-md + @extra-margin;
+	}
+	@media (max-width: @screen-xs-max) {
+		margin-top: @header-height-xs + @extra-margin-md;
+	}
+	@media (max-width: @screen-xxs-max) {
+		margin-top: @header-height-xxs + @extra-margin-md;
+	}
+
+	&.content-wrap-flex {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&.content-wrap-margin-lg {
+		margin-top: @header-height + @header-promo-height;
+
+		@media (max-width: @screen-md-max) {
+			margin-top: @header-height-md + @header-promo-height;
+		}
+		@media (max-width: @screen-xs-max) {
+			margin-top: @header-height-xs + @header-promo-height;
+		}
+		@media (max-width: @screen-xxs-max) {
+			margin-top: @header-height-xxs + @header-promo-height;
+		}
+	}
+}
+
+.section-wrap-paddings() {
+	padding-bottom: 6.5rem;
+
+	@media (max-width: @screen-sm-max) {
+		padding-bottom: 5.2rem;
+	}
+	@media (max-width: @screen-xs-max) {
+		padding-bottom: 3.2rem;
+	}
+	@media (max-width: @screen-xxs-max) {
+		padding-bottom: 2.7rem;
+	}
+}
+
+// Обёртка вокруг контента, в котором нет .section-ов, но должны быть отступы и оформление (например, "Калькулятор").
+.section-wrap {
+	.section-wrap-paddings();
+	flex: 1 0 auto;
+}
+
+// Блок контента.
+.section {
+	padding: 3.0em 0 5.0rem;
+
+	@media (max-width: @screen-sm-max) {
+		padding: 2.5em 0 4.0rem;
+	}
+	@media (max-width: @screen-xs-max) {
+		padding: 2.2em 0 2.5rem;
+	}
+	@media (max-width: @screen-xxs-max) {
+		padding: 1.8em 0 2.2rem;
+	}
+
+	&.section-alt {
+		background: #f9f9f9;
+	}
+	&.section-inv {
+		color: @color-text-light;
+
+		a {
+			&, &:focus {
+				color: @color-text-light;
+			}
+			&:hover {
+				color: @color-separator;
+			}
+		}
+	}
+	&.section-pb-md {
+		padding-bottom: 3.0rem;
+
+		@media (max-width: @screen-sm-max) {
+			padding-bottom: 2.5em;
+		}
+		@media (max-width: @screen-xs-max) {
+			padding-bottom: 2.2em;
+		}
+		@media (max-width: @screen-xxs-max) {
+			padding-bottom: 1.8em;
+		}
+	}
+	&.section-pb-sm {
+		padding-bottom: 2.0rem;
+
+		@media (max-width: @screen-sm-max) {
+			padding-bottom: 1.8em;
+		}
+		@media (max-width: @screen-xs-max) {
+			padding-bottom: 1.5em;
+		}
+		@media (max-width: @screen-xxs-max) {
+			padding-bottom: 1.2em;
+		}
+	}
+
+	&:first-of-type {
+		padding-top: 0;
+	}
+
+	&:last-of-type:not(.parallax-window) {
+		.section-wrap-paddings();
+	}
+}
+
+.block-center {
+	margin: auto;
+}
+
+.highlighted {
+	color: @color-main;
+}

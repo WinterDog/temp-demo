@@ -1,0 +1,318 @@
+@charset "utf-8";
+/**
+ * Стили для личного кабинета.
+ */
+
+@import (inline) '../../../ext/jquery/jquery-ui/jquery-ui.css';
+
+@import "../config";
+@import "../mixins";
+
+@import "elements/button";
+@import "elements/table";
+
+@import "blocks/content";
+@import "blocks/droppable";
+@import "blocks/filters";
+@import "blocks/header-panel";
+@import "blocks/left-menu";
+@import "blocks/table-menu";
+
+@color-page-bgr: rgb(245, 245, 245);
+@color-logo-panel: #2a2a2a;
+@top-panel-height: 4.5rem;
+@top-panel-height-sm: 3.5rem;
+
+body {
+	background: #f5f5f5 !important;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+// Отступ слева для меню.
+.private-body-wrap {
+	padding-left: 5.0rem;
+
+	@media print {
+		padding-left: 0;
+	}
+}
+
+// Обёртка страницы для случаев, когда сверху есть панель.
+.private-page-wrap-with-panel {
+	padding-top: @top-panel-height;
+
+	@media (max-width: @screen-sm-max) {
+		padding-top: @top-panel-height-sm;
+	}
+	@media print {
+		padding-top: 0;
+	}
+}
+
+.private-table-wrap {
+	max-width: 100%;
+	//min-height: 10.0rem;
+	overflow-x: visible;
+
+	// Исправляем косяк с правым паддингом.
+	// Без внутреннего слоя с display: inline-block почему-то правый паддинг съедается почти полностью.
+	.private-table-wrap-inner {
+		display: inline-block;
+	}
+
+	&.overflow-hidden {
+		overflow: hidden;
+	}
+}
+
+.content-wrap-private-lock {
+	align-items: center;
+	background: rgba(255, 255, 255, 0.6);
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 5.0rem;
+	right: 0;
+	top: @top-panel-height;
+	position: fixed;
+	z-index: 100;
+
+	@media (max-width: @screen-sm-max) {
+		top: @top-panel-height-sm;
+	}
+
+	.load5 {
+		.loader {
+			margin-top: -4.0rem;
+		}
+	}
+}
+
+// Блокировочный слой для загружающихся таблиц.
+.lock-div {
+	background: rgba(0, 0, 0, 0.3);
+	bottom: 0;
+	display: none;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 102;
+}
+
+// Иконка о положительной или отрицательной сумме / операции.
+.private-sum-icon {
+	background: rgb(255, 255, 255);
+	border-radius: 50%;
+	font-family: 'Ionicons';
+	margin-right: 0.4em;
+}
+
+.private-sum-icon-pos {
+	color: #5cb85c;
+
+	&:before {
+		content: '\f120';
+	}
+}
+
+.private-sum-icon-neg {
+	color: @color-main;
+
+	&:before {
+		content: '\f128';
+	}
+}
+
+// Дополнительные колонки.
+.private-extra-wrap {
+	margin-bottom: 1.0em;
+
+	h4 {
+		color: @color-text-moderate;
+		margin-top: 0;
+	}
+}
+
+// Колонки-слои в области для перетаскивания.
+.private-extra-columns {
+	.clearfix();
+	margin: -1.0rem 0 1.0rem -1.0rem;
+	padding: 0;
+
+	li {
+		float: left;
+		list-style: none;
+		margin: 1.0rem 0 0 1.0rem;
+	}
+}
+
+// Индикатор подгрузки для popover'ов в таблице.
+.private-popover-loading {
+	min-width: 15.0rem;
+}
+
+.private-content-header-wrap {
+	align-items: baseline;
+	display: flex;
+	justify-content: flex-start;
+
+	.private-content-header {
+		margin-right: 1.0em;
+	}
+}
+
+.private-link-switch {
+	margin-bottom: 0;
+	margin-top: 1.6rem;
+
+	@media (max-width: @screen-sm-max) {
+		margin-top: 1.0rem;
+	}
+}
+
+.finance-balance {
+	&, &:focus {
+		border-bottom: 1px none @color-inactive;
+		color: @color-inactive;
+		font-size: 1.1em;
+		font-weight: 500;
+	}
+	&.active {
+		border-bottom-style: dashed;
+
+		&:hover {
+			border-bottom-color: @color-main;
+			color: @color-main;
+		}
+	}
+
+	.icon {
+		font-size: 0.85em;
+	}
+}
+
+dl {
+	&.private {
+		dt {
+			float: left;
+			font-weight: normal;
+
+			@media (max-width: @screen-xs-max) {
+				float: initial;
+				margin-bottom: 0.3em;
+			}
+		}
+		dd {
+			margin: 0 0 1.1em 20.0em;
+		}
+	}
+	&.private-curator {
+		margin: 0;
+
+		.curator-info-wrap & dt {
+			color: @color-text-muted;
+		}
+		dd {
+			margin: 0 0 0.2em 6.5em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.private-claim-info {
+	border: 0.2rem solid @color-main;
+	border-radius: 0.3rem;
+	margin-top: 2.0em;
+	max-width: 30.0rem;
+	padding: 0.8em 1.0em 0.9em;
+}
+
+.open > .dropdown-toggle.btn-primary {
+	&, &:focus {
+		background: darken(@color-main, 8%);
+		border: darken(@color-main, 8%);
+	}
+}
+
+.private-color-pick-list {
+	margin: 0.5em 0 0;
+	padding: 0;
+	white-space: nowrap;
+
+	li {
+		border: 2px solid transparent;
+		border-radius: 0.2em;
+		display: inline-block;
+		margin-right: 0.4em;
+		padding: 2px;
+
+		a {
+			border: 1px solid @color-text-moderate;
+			border-radius: 0.2em;
+			color: @color-text-moderate;
+			display: block;
+			height: 1.2em;
+			text-align: center;
+			width: 1.2em;
+
+			&.empty {
+				border: none;
+				position: relative;
+
+				&:before {
+					bottom: 0;
+					content: '\f129';
+					font-family: 'Ionicons';
+					font-size: 0.8em;
+					left: 0;
+					line-height: 1;
+					position: absolute;
+					right: 0;
+					top: 0.3em;
+				}
+			}
+		}
+		&.active {
+			border-color: @color-main;
+		}
+	}
+}
+
+.copy-link {
+	.not-print();
+	display: inline-block;
+	line-height: 0;
+	position: relative;
+	width: 1.1rem;
+
+	&:after {
+		content: '\f41b';
+		font-family: 'Ionicons';
+		font-size: 1.5rem;
+		left: 0;
+		position: absolute;
+		top: -0.3em;
+	}
+}
+
+.copy-link-message {
+	.not-print();
+	display: inline-block;
+	left: 2.0em;
+	margin: 0;
+	padding: 0.3em;
+	position: absolute;
+	top: 0.2em;
+}
+
+// Обёртка для таблицы со списком накладных при печати ЭР.
+.receipt-order-list-wrap {
+	max-height: 35.0rem;
+	margin: 1.5rem 0;
+	overflow-y: auto;
+}

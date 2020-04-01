@@ -1,0 +1,14 @@
+.generate-height(@i: 0) when (@i =< 10) {
+	& when (@i > 0) {
+		.h-@{i}r {
+			height: ~"@{i}rem" !important;
+		}
+	}
+	.h-@{i}-5r {
+		height: ~"@{i}.5rem" !important;
+	}
+
+	.generate-height(@i + 1);
+}
+
+.generate-height();

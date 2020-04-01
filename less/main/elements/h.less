@@ -1,0 +1,180 @@
+/**
+ * Заголовки - h1, h2, h3, h4, h5, h6.
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	color: @hsl-text-dark;
+	font-weight: 400;
+	line-height: 1.15;
+
+	&.bordered,
+	&.highlighted {
+		margin: 0.7em 0 1.6em 0;
+		text-align: center;
+		position: relative;
+
+		/*&:first-child {
+			margin-top: 0;
+		}*/
+	}
+	&.bordered {
+		&:after {
+			background: @color-main;
+			content: '';
+			height: 2px;
+			left: 0;
+			margin: 0 auto;
+			position: absolute;
+			right: 0;
+			bottom: -0.45em;
+			width: 3.3em;
+		}
+
+		&.bordered-left {
+			&:after {
+				right: initial;
+			}
+		}
+	}
+	&.highlighted {
+		color: @color-main;
+		font-size: 2.15rem;
+		font-weight: 400;
+		margin-top: 0;
+		text-transform: uppercase;
+	}
+
+	&.header-left {
+		text-align: left;
+
+		&:after {
+			right: initial;
+		}
+	}
+	// Заголовки на блоках с картинкой в качестве фона ("Нужна консультация" и т. п.).
+	&.header-light {
+		color: #ffffff !important;
+
+		&:after {
+			background: #ffffff;
+		}
+	}
+	// Заголовок с галкой ("Сверхнормативное хранение").
+	&.checked {
+		margin-top: 1.2em;
+		padding-left: 1.7rem;
+		position: relative;
+
+		&:before {
+			color: @color-main;
+			content: '\2713';
+			display: inline-block;
+			font-size: 1.7rem;
+			left: 0;
+			position: absolute;
+			top: -0.25em;
+		}
+	}
+}
+
+h1 {
+	font-size: 2.15rem;
+	font-weight: 400;
+	margin: 0 0 0.8em 0;
+	padding: 0;
+
+	&.bordered {
+		margin-bottom: 1.2em;
+	}
+
+	@media (max-width: @screen-xs-max) {
+		font-size: 1.75rem;
+	}
+	@media (max-width: @screen-xxs-max) {
+		font-size: 1.45rem;
+		line-height: 1.2;
+	}
+}
+
+h2 {
+	font-size: 1.9rem;
+	font-weight: 400;
+	padding: 0;
+
+	&.bordered {
+		margin: 0 0 1.6em 0;
+	}
+
+	@media (max-width: @screen-xs-max) {
+		font-size: 1.65rem;
+	}
+	@media (max-width: @screen-xxs-max) {
+		font-size: 1.35rem;
+	}
+}
+
+h3 {
+	font-size: 1.7rem;
+	font-weight: 400;
+	line-height: 1.3;
+
+	@media (max-width: @screen-xs-max) {
+		font-size: 1.55em;
+	}
+	@media (max-width: @screen-xxs-max) {
+		font-size: 1.3em;
+	}
+}
+
+h4 {
+	//font-size: 1.2rem;
+	line-height: 1.35;
+
+	@media (max-width: @screen-xs-max) {
+		font-size: 1.25rem;
+		line-height: 1.3;
+	}
+	@media (max-width: @screen-xxs-max) {
+		font-size: 1.2rem;
+	}
+}
+
+h5 {
+	font-size: 1.15rem;
+}
+
+h6 {
+	font-size: 1.05rem;
+	line-height: 1.45;
+	margin-bottom: 1.0em;
+}
+
+// Заголовок модала.
+.modal-title {
+	color: @hsl-text-dark;
+	font-size: 1.5rem;
+	position: relative;
+	text-align: center;
+
+	// По умолчанию у всех заголовков делаем нижний красный бордер. Если нужно его убрать, используем класс .not-bordered.
+	&:not(.not-bordered):after {
+		background: @hsl-main;
+		content: '';
+		height: 2px;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		bottom: -0.5em;
+		width: 2.5em;
+	}
+}
+
+// Убираем отступ сверху у заголовков блоков контента.
+.section, .section-wrap {
+	h2, h3 {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}

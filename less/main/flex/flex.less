@@ -1,0 +1,63 @@
+.flex-row {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-around {
+	justify-content: space-around !important;
+}
+.flex-between {
+	justify-content: space-between !important;
+}
+.flex-start {
+	justify-content: flex-start !important;
+}
+.flex-end {
+	justify-content: flex-end !important;
+}
+.flex-center {
+	justify-content: center !important;
+}
+
+.flex-nowrap {
+	flex-wrap: nowrap !important;
+}
+.flex-wrap {
+	flex-wrap: wrap !important;
+}
+
+.flex-fill {
+	flex: 1;
+}
+
+.flex-align-start {
+	align-items: flex-start !important;
+}
+.flex-align-center {
+	align-items: center !important;
+}
+.flex-align-end {
+	align-items: flex-end !important;
+}
+.flex-align-baseline {
+	align-items: baseline !important;
+}
+
+// Строка элементов с переносом и отступами между элементами.
+// Идеально подходит под список картинок, новостей и т. п.
+.flex-gallery {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: -1.5em 0 0 -1.5em;
+
+	& > * {
+		padding: 1.5em 0 0 1.5em;
+	}
+}

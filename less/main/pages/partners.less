@@ -1,0 +1,39 @@
+.partner-blocks {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: 0 auto;
+
+	.partner-block {
+		margin: 1.5em 3.0em;
+		width: 14.8em;
+
+		.icon {
+			margin-bottom: 1.0em;
+		}
+		img {
+			height: auto;
+			max-width: 100%;
+		}
+		a {
+			font-weight: bold;
+		}
+
+		@media (max-width: @screen-sm-max) {
+			margin: 1.5em 2.0em;
+			width: 13.7em;
+		}
+		@media (max-width: @screen-xs-max) {
+			margin: 1.0em 1.7em;
+			width: 13.7em;
+		}
+	}
+
+	@media (max-width: @screen-md-max) {
+		max-width: 62.5em;
+	}
+	@media (max-width: @screen-xs-max) {
+		justify-content: center;
+	}
+}

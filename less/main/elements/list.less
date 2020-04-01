@@ -1,0 +1,136 @@
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul.list-styled {
+	font-size: 1.0rem;
+	font-weight: 400;
+	margin: 0.3em 0;
+	padding-left: 1.0em;
+
+	> li {
+		list-style: none;
+		position: relative;
+
+		&:before {
+			content: '•';
+			color: @color-main;
+			font-size: 1.8em;
+			left: -0.6em;
+			position: absolute;
+			top: -0.3em;
+		}
+	}
+}
+
+ul.list-styled-lg {
+	font-size: 1.15rem;
+
+	> li {
+		&:before {
+			color: @color-text-moderate;
+		}
+	}
+
+	&.list-styled-lg-alt {
+		> li {
+			&:before {
+				color: @color-text-light;
+			}
+		}
+	}
+
+	@media (max-width: @screen-sm-max) {
+		font-size: 1.1rem;
+	}
+	@media (max-width: @screen-xs-max) {
+		font-size: 1.05rem;
+	}
+}
+
+ol.list-styled {
+	> li {
+		list-style: decimal;
+	}
+}
+
+ol, ul {
+	&.list-styled, &.checked-list, &.list-wo-checks {
+		> li:not(:last-child) {
+			margin-bottom: 0.3em;
+		}
+	}
+}
+
+ul {
+	&.checked-list,
+	&.checked-column-list {
+		padding: 0;
+
+		> li {
+			list-style: none;
+			margin-bottom: 0.9em;
+			padding-left: 2.4rem;
+			position: relative;
+
+			&:before {
+				color: @color-main;
+				content: '\2713';
+				display: inline-block;
+				font-size: 1.7rem;
+				left: 0;
+				position: absolute;
+				top: -0.35em;
+			}
+
+			@media (max-width: @screen-sm-max) {
+				margin-bottom: 0.7em;
+				padding-left: 2.0rem;
+			}
+		}
+	}
+
+	&.checked-column-list {
+		> li {
+			display: inline-block;
+			list-style: none;
+			padding-right: 2.0em;
+			vertical-align: top;
+			width: 49%;
+
+			@media (max-width: @screen-sm-max) {
+				display: block;
+				padding-right: 0;
+				width: auto;
+			}
+		}
+	}
+
+	&.list-wo-checks {
+		padding: 0;
+
+		> li {
+			list-style: none;
+			margin-bottom: 0.9em;
+
+			@media (max-width: @screen-sm-max) {
+				margin-bottom: 0.7em;
+			}
+		}
+	}
+}
+
+// Список накладных в ЛК.
+.list-columned-orders {
+	display: flex;
+	//flex-direction: column;
+	flex-wrap: wrap;
+	max-height: 24.8em;
+	writing-mode: vertical-lr;
+
+	> li {
+		margin-right: 1.5em;
+		writing-mode: horizontal-tb;
+	}
+}

@@ -1,0 +1,62 @@
+a, a:focus {
+	color: @color-main;
+	text-decoration: none;
+	transition: all 0.15s ease-out;
+}
+a:hover {
+	color: #333333;
+}
+a img {
+	border: none;
+}
+
+.dashed {
+   border-bottom: 1px dashed @color-main;
+   text-decoration: none;
+
+   &:hover {
+	 border-bottom-color: #333333;
+   }
+}
+
+.dashed-text-muted {
+  color: @color-text-muted;
+  border-bottom: 1px dashed @color-text-muted;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+	border-bottom-color: #333333;
+  }
+}
+
+.bolder {
+  font-weight: bolder;
+  color: @color-text-dark;
+  cursor: pointer;
+}
+
+.dashed-decor {
+	border-bottom: 1px dashed @color-main;
+
+	&:hover {
+		border-bottom-color: #333333;
+	}
+}
+
+.no-hover {
+	&:focus, &:hover {
+		color: @color-main;
+	}
+}
+
+.link-bgr {
+	background: @color-main;
+	color: @color-text-light;
+	padding: 0.2em 0.4em;
+
+	&:focus, &:hover {
+		background: lighten(@color-main, 15%);
+		color: @color-text-light;
+	}
+}

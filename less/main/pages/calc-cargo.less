@@ -1,0 +1,131 @@
+// Строки-грузы.
+.cargo-detailed-wrap {
+	padding-top: 1.0em;
+}
+// Строка-груз в шаге 2.
+.cargo-detailed {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	margin: 0 0 1.4em 0;
+	position: relative;
+
+	@media (max-width: @screen-md-max) {
+		flex-wrap: wrap;
+	}
+
+	& + .cargo-detailed {
+		//border-top: 2px dashed #d2d2d2;
+		margin-top: 1.8em;
+	}
+
+	.cargo-amount-wrap {
+		margin-right: 2.0em;
+		order: -3;
+	}
+	.cargo-place-type-wrap {
+		margin-right: 2.0em;
+		order: -2;
+
+		@media (max-width: @screen-sm-max) {
+			margin-right: 0;
+		}
+		@media (max-width: @screen-xxs-max) {
+			width: 100%;
+		}
+	}
+	.weight-wrap {
+		@media (max-width: @screen-md-max) {
+			margin-right: 2.0em;
+		}
+		@media (max-width: @screen-xs-max) {
+			margin-left: 2.0em;
+			margin-right: 0;
+		}
+		@media (max-width: @screen-xxs-max) {
+			margin-left: 0;
+		}
+	}
+	.cargo-size-volume-wrap {
+		display: flex;
+		flex-wrap: nowrap;
+		margin-left: 2.0em;
+
+		@media (max-width: @screen-md-max) {
+			margin-left: 0;
+			order: 1;
+		}
+		@media (max-width: @screen-xs-max) {
+			flex-wrap: wrap;
+			order: initial;
+		}
+		@media (max-width: @screen-xxs-max) {
+			order: 1;
+		}
+
+		.form-group:not(:last-child) {
+			margin-right: 1.2em;
+
+			@media (max-width: @screen-xxs-max) {
+				margin-right: 0.6em;
+			}
+		}
+	}
+	.cargo-size-wrap {
+		display: flex;
+	}
+	.cargo-ind-services-wrap {
+		display: flex;
+		flex-direction: column;
+		margin: 0 6.0em 0 auto;
+
+		@media (max-width: @screen-md-max) {
+			margin-right: 26.5em;
+			order: -1;
+		}
+		@media (max-width: @screen-sm-max) {
+			margin-right: 12.0em;
+		}
+		@media (max-width: @screen-xs-max) {
+			margin: 0 0 0 2.0em;
+			order: initial;
+		}
+		@media (max-width: @screen-xxs-max) {
+			margin: 0 0 0 1.2em;
+		}
+	}
+
+	@media (max-width: @screen-xs-max) {
+		flex-wrap: wrap;
+	}
+}
+.cargo-detailed-btn-wrap {
+	display: flex;
+	margin: 0 0 0 auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	.calc-btn-sm-remove {
+		margin-right: 0.3em;
+	}
+}
+.cargo-detailed-total {
+	border: 2px dashed #b7b7b7;
+	margin-top: 1.3em;
+	padding: 0.8em 1.0em 0.5em 1.0em;
+}
+.cargo-detailed-total-header {
+	font-size: 1.15rem;
+	font-weight: 400;
+	margin-top: 1.6rem;
+}
+.cargo-service-wrap {
+	.form-group {
+		margin-bottom: 0.6rem;
+	}
+}
+
+.cargo-separator {
+	border-color: #dddddd;
+}

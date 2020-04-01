@@ -1,0 +1,86 @@
+// График отправок.
+.schedule-form {
+	margin-bottom: 1.0rem;
+
+	@media (min-width: @screen-sm-min) {
+		.cities-wrap {
+			margin-left: -3.0rem;
+
+			.form-group {
+				margin-bottom: 0.5rem;
+				margin-left: 3.0rem;
+			}
+		}
+	}
+	.form-group {
+		position: relative;
+		max-width: 23.0rem;
+		width: 100%;
+	}
+	.city-swap-btn {
+		font-size: 1.2rem;
+		padding: 0.3rem;
+		position: absolute;
+		right: -2.3rem;
+		top: 1.1rem;
+		z-index: 1;
+
+		@media (max-width: @screen-xxs-max) {
+			font-size: 1.3rem;
+			right: 0;
+			top: 4.0rem;
+			transform: rotateZ(90deg);
+		}
+	}
+}
+.schedule-form-short {
+	@media (min-width: @screen-xs-min) {
+		margin: 0 auto;
+		max-width: 40.0em;
+	}
+}
+
+.schedule-table-wrap {
+	margin-bottom: 1.0rem;
+	max-height: 40.0rem;
+	overflow: auto;
+	// Фикс - не видно нижнюю границу таблицы.
+	padding-bottom: 1px;
+	position: relative;
+
+	tbody > tr.active > th {
+		background-color: #dddddd;
+	}
+	td, th {
+		border-bottom: none !important;
+	}
+
+	.schedule-row-border {
+		& > td, th {
+			border-bottom: 2px solid #dddddd !important;
+		}
+	}
+}
+
+.schedule-table-footer {
+	align-items: baseline;
+
+	.documents-list {
+		@media (min-width: @screen-xs-min) {
+			text-align: right;
+		}
+	}
+}
+
+// Кнопка на старой странице.
+.schedule-calc-btn-wrap {
+	flex-grow: 0;
+
+	@media (min-width: @screen-sm-min) {
+		margin-top: 1.0rem;
+		text-align: right;
+	}
+	@media (max-width: @screen-xs-max) {
+		margin-bottom: 1.0rem;
+	}
+}

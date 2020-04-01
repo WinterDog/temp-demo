@@ -1,0 +1,166 @@
+@foreground: /*#ffffff; */ #9f1b1b;
+
+.load5 {
+	border: 1px solid transparent;
+	margin: auto;
+	position: relative;
+	transition: all 0.3s;
+
+	.loader {
+		animation: load5 1.1s infinite ease;
+		border-radius: 50%;
+		font-size: 1.0em;
+		height: 1.0em;
+		margin: 2.7rem auto 2.5rem;
+		text-indent: -9999em;
+		width: 1.0em;
+
+		.blockMsg-xs & {
+			font-size: 0.4rem;
+		}
+	}
+
+	&.load-sm {
+		.loader {
+			font-size: 0.7rem;
+			margin: initial;
+		}
+	}
+	&.load-xs {
+		height: 1.9rem;
+		width: 1.9rem;
+
+		.loader {
+			font-size: 0.3rem;
+			left: 0.8rem;
+			margin: initial;
+			top: 0.9rem;
+		}
+	}
+	&.load-inline {
+		display: inline-block;
+		margin-left: 0.2em;
+
+		.loader {
+			font-size: 0.2rem;
+			left: 0.7rem;
+			margin: initial;
+			position: absolute;
+			top: -0.4rem;
+		}
+	}
+
+	&.load5-abs {
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+
+		.loader {
+			display: block;
+			left: 50%;
+			margin: initial;
+			top: 50%;
+			transform: translate3d(-50%, -50%, 0);
+		}
+	}
+}
+
+@-webkit-keyframes load5 {
+	.load5-frames;
+}
+
+@keyframes load5 {
+	.load5-frames;
+}
+
+.load5-frames() {
+	0%,
+	100% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 100%),
+			1.8em -1.8em 0 0em fade(@foreground, 20%),
+		2.5em 0em 0 0em fade(@foreground, 20%),
+		1.75em 1.75em 0 0em fade(@foreground, 20%),
+		0em 2.5em 0 0em fade(@foreground, 20%),
+		-1.8em 1.8em 0 0em fade(@foreground, 20%),
+		-2.6em 0em 0 0em fade(@foreground, 50%),
+			-1.8em -1.8em 0 0em fade(@foreground, 70%);
+	}
+
+	12.5% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 70%),
+			1.8em -1.8em 0 0em fade(@foreground, 100%),
+		2.5em 0em 0 0em fade(@foreground, 20%),
+		1.75em 1.75em 0 0em fade(@foreground, 20%),
+		0em 2.5em 0 0em fade(@foreground, 20%),
+		-1.8em 1.8em 0 0em fade(@foreground, 20%),
+		-2.6em 0em 0 0em fade(@foreground, 20%),
+			-1.8em -1.8em 0 0em fade(@foreground, 50%);
+	}
+
+	25% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 50%),
+			1.8em -1.8em 0 0em fade(@foreground, 70%),
+		2.5em 0em 0 0em fade(@foreground, 100%),
+		1.75em 1.75em 0 0em fade(@foreground, 20%),
+		0em 2.5em 0 0em fade(@foreground, 20%),
+		-1.8em 1.8em 0 0em fade(@foreground, 20%),
+		-2.6em 0em 0 0em fade(@foreground, 20%),
+			-1.8em -1.8em 0 0em fade(@foreground, 20%);
+	}
+
+	37.5% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 20%),
+			1.8em -1.8em 0 0em fade(@foreground, 50%),
+		2.5em 0em 0 0em fade(@foreground, 70%),
+		1.75em 1.75em 0 0em fade(@foreground, 100%),
+		0em 2.5em 0 0em fade(@foreground, 20%),
+		-1.8em 1.8em 0 0em fade(@foreground, 20%),
+		-2.6em 0em 0 0em fade(@foreground, 20%),
+			-1.8em -1.8em 0 0em fade(@foreground, 20%);
+	}
+
+	50% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 20%),
+			1.8em -1.8em 0 0em fade(@foreground, 20%),
+		2.5em 0em 0 0em fade(@foreground, 50%),
+		1.75em 1.75em 0 0em fade(@foreground, 70%),
+		0em 2.5em 0 0em fade(@foreground, 100%),
+		-1.8em 1.8em 0 0em fade(@foreground, 20%),
+		-2.6em 0em 0 0em fade(@foreground, 20%),
+			-1.8em -1.8em 0 0em fade(@foreground, 20%);
+	}
+
+	62.5% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 20%),
+			1.8em -1.8em 0 0em fade(@foreground, 20%),
+		2.5em 0em 0 0em fade(@foreground, 20%),
+		1.75em 1.75em 0 0em fade(@foreground, 50%),
+		0em 2.5em 0 0em fade(@foreground, 70%),
+		-1.8em 1.8em 0 0em fade(@foreground, 100%),
+		-2.6em 0em 0 0em fade(@foreground, 20%),
+			-1.8em -1.8em 0 0em fade(@foreground, 20%);
+	}
+
+	75% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 20%),
+			1.8em -1.8em 0 0em fade(@foreground, 20%),
+		2.5em 0em 0 0em fade(@foreground, 20%),
+		1.75em 1.75em 0 0em fade(@foreground, 20%),
+		0em 2.5em 0 0em fade(@foreground, 50%),
+		-1.8em 1.8em 0 0em fade(@foreground, 70%),
+		-2.6em 0em 0 0em fade(@foreground, 100%),
+			-1.8em -1.8em 0 0em fade(@foreground, 20%);
+	}
+
+	87.5% {
+		box-shadow: 0em -2.6em 0em 0em fade(@foreground, 20%),
+			1.8em -1.8em 0 0em fade(@foreground, 20%),
+		2.5em 0em 0 0em fade(@foreground, 20%),
+		1.75em 1.75em 0 0em fade(@foreground, 20%),
+		0em 2.5em 0 0em fade(@foreground, 20%),
+		-1.8em 1.8em 0 0em fade(@foreground, 50%),
+		-2.6em 0em 0 0em fade(@foreground, 70%),
+			-1.8em -1.8em 0 0em fade(@foreground, 100%);
+	}
+}

@@ -1,0 +1,239 @@
+@order-status-form-width: 420px;
+
+.order-status-history {
+	@media (min-width: 440px) {
+		width: @order-status-form-width;
+	}
+
+	.modal-header {
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+		// @todo Хак для масштабирования, чтобы не было белой границы в 1 пиксель.
+		//margin-top: -1px;
+		padding-bottom: 0.9em;
+		padding-top: 0.7em;
+
+		.close {
+			//color: #ffffff;
+			//text-shadow: 0 1px 0 #ffffff;
+			margin-top: 0.05em;
+			//opacity: 0.7;
+
+			//&:focus, &:hover {
+			//	color: #ffffff;
+			//	opacity: 1;
+			//}
+		}
+		.modal-hint-btn {
+			top: 1.0rem;
+			z-index: 2;
+		}
+	}
+
+	.modal-title {
+		color: #ffffff;
+		font-size: 1.2rem;
+		margin: 0;
+		position: relative;
+		text-align: center;
+	}
+
+	.doc-hint-wrap {
+		box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.4);
+		padding: 0.5em 1.5em 0.8rem;
+		top: 0;
+	}
+
+	.history-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		transition: all 0.3s;
+
+		> li {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			line-height: 1.25;
+			min-height: 3.7em;
+			position: relative;
+
+			@media (max-width: @order-status-form-width) {
+				min-height: 3.2em;
+			}
+
+			&:after {
+				background: #c4c4c4;
+				content: none;
+				display: block;
+				height: 1.7em;
+				left: 8.55em;
+				position: absolute;
+				top: 3.65em;
+				width: 0.2em;
+
+				@media (max-width: @order-status-form-width) {
+					display: none;
+				}
+			}
+
+			.date-label {
+				margin-top: 1.0em;
+				width: 7.0em;
+
+				.date-label-border {
+					display: none;
+				}
+
+				@media (max-width: @order-status-form-width) {
+					position: relative;
+					width: 6.7em;
+
+					.date-label-border {
+						border: 1px solid #a2a2a2;
+						display: block;
+						height: 0;
+						margin-top: 0.2em;
+						width: 5.2em;
+					}
+				}
+			}
+			.icon {
+				border: 2px solid #a2a2a2;
+				border-radius: 50%;
+				height: 3.3em;
+				margin-right: 1.8em;
+				padding: 0.5em;
+				width: 3.3em;
+
+				@media (max-width: @order-status-form-width) {
+					display: none;
+				}
+			}
+			.status-label {
+				margin-top: 1.0em;
+			}
+
+			&.future {
+				.icon {
+					background: #a2a2a2;
+				}
+			}
+		}
+
+		&.future {
+			opacity: 0;
+
+			> li {
+				margin-bottom: 2.0em;
+
+				&:after {
+					content: '';
+				}
+
+				@media (max-width: @order-status-form-width) {
+					margin-bottom: 0;
+				}
+			}
+		}
+		&.present {
+			> li:not(:last-child) {
+				margin-bottom: 2.0em;
+
+				&:after {
+					content: '';
+				}
+
+				@media (max-width: @order-status-form-width) {
+					margin-bottom: 0;
+				}
+			}
+		}
+		&.past {
+			opacity: 0;
+
+			> li {
+				margin-top: 2.0em;
+
+				&:after {
+					bottom: 4.0em;
+					content: '';
+					top: initial;
+				}
+
+				@media (max-width: @order-status-form-width) {
+					margin-top: 0;
+				}
+			}
+		}
+		&.active {
+			opacity: 1;
+		}
+	}
+
+	.history-switch {
+		border-bottom-left-radius: 0.3em;
+		border-bottom-right-radius: 0.3em;
+		display: block;
+		height: 1.4em;
+		left: 0;
+		margin: 0 auto;
+		opacity: 0.42;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 2.6em;
+		z-index: 1;
+
+		&:after {
+			color: @color-text-light;
+			content: '\f123';
+			display: block;
+			font-family: 'Ionicons';
+			font-size: 0.9em;
+			margin-top: 0.1em;
+			text-align: center;
+			transition: all 0.3s;
+		}
+
+		&.active {
+			&:after {
+				margin-top: -0.05em;
+				transform: rotate(180deg);
+			}
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	hr {
+		border-top: 2px solid @color-separator;
+		margin: 0.9em 0 1.0em;
+	}
+}
+
+h6.header-muted {
+	color: @color-text-muted;
+	font-size: 1.0em;
+	margin-bottom: 0.3em;
+}
+
+.route-wrap {
+	margin-bottom: 1.2em;
+
+	.icon {
+		display: inline-block;
+		height: 1.7em;
+		margin: -0.7em 0.6em 0 0.6em;
+		position: relative;
+		width: 1.7em;
+
+		svg {
+			left: 0;
+			position: absolute;
+			top: 0.5em;
+		}
+	}
+}

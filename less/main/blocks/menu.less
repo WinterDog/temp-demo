@@ -1,0 +1,74 @@
+/**
+ * Главное меню сверху и дублирующее меню в футере.
+ */
+
+.menu-close-btn {
+	height: 2.3rem;
+	left: 21.2rem;
+	position: absolute;
+	top: 1.5rem;
+	width: 2.3rem;
+
+	@media (max-width: @screen-md-max) {
+		left: 21.3rem;
+	}
+	@media (max-width: @screen-sm-max) {
+		left: 19.2rem;
+	}
+	@media (max-width: @screen-xs-max) {
+		left: 0.7rem;
+		top: 0.7rem;
+	}
+}
+
+.main-menu-wrap {
+	dd {
+		padding: 0.25em 0;
+
+		a {
+			@media (max-width: 750px) {
+				padding: 7px 0 6px 0;
+			}
+		}
+
+		@media (max-width: @screen-xs-max) {
+			background: @color-main;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+			display: none;
+			padding: 0;
+		}
+	}
+
+	a {
+		&:hover {
+			span {
+				border-bottom: 1px dashed #ffffff;
+			}
+		}
+
+		@media (max-width: @screen-xs-max) {
+			display: block;
+		}
+	}
+}
+
+.main-menu-container-footer {
+	padding-bottom: 1.5em;
+	padding-top: 3.0em;
+}
+
+.footer-menu-wrap {
+	dd {
+		@media (max-width: @screen-xs-max) {
+			background: #cfcece;
+			border-bottom: 1px solid #f1f1f1;
+		}
+	}
+	a {
+		&:hover {
+			span {
+				border-bottom: 1px dashed #333333;
+			}
+		}
+	}
+}

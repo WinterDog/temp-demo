@@ -1,0 +1,204 @@
+.general-services {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	@media (max-width: @screen-xs-max) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	@media (max-width: @screen-xxs-max) {
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.service {
+		margin: 0;
+
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 0.6em;
+			padding: 0 0.7em;
+			width: 12.4rem;
+		}
+		@media (max-width: @screen-xxs-max) {
+			padding: 0;
+			width: auto;
+		}
+
+		.icon {
+			border: 0.2rem solid @color-inactive;
+			border-radius: 50%;
+			height: 6.7rem;
+			margin-bottom: 0.6em; //4.0em;
+			margin-top: 0.5em;
+			padding: 1.6rem;
+			position: relative;
+			width: 6.7rem;
+
+			@media (max-width: @screen-sm-max) {
+				margin-bottom: 0.7em;
+				margin-top: 0;
+			}
+
+			// Инвертированная иконка "Получение груза".
+			.icon-accept {
+				transform: scaleX(-1.0);
+			}
+			.icon-number {
+				bottom: 0.2em;
+				color: @color-main;
+				font-weight: bold;
+				left: 0;
+				position: absolute;
+				right: 0;
+			}
+		}
+		.icon-alt {
+			//margin-bottom: 0.5em;
+			//margin-top: 4.0em;
+
+			@media (max-width: @screen-sm-max) {
+				//margin-bottom: 0.7em;
+				//margin-top: 0;
+			}
+
+			.icon-number {
+				bottom: initial;
+				color: @color-inactive;
+				top: 0.2em;
+
+				@media (max-width: @screen-sm-max) {
+					bottom: 0.2em;
+					top: initial;
+				}
+			}
+		}
+	}
+	.service-header {
+		font-weight: 600;
+		text-transform: uppercase;
+
+		@media (max-width: @screen-sm-max) {
+			display: flex;
+			min-height: 2.8em;
+			align-items: flex-end;
+		}
+		@media (max-width: @screen-xxs-max) {
+			min-height: initial;
+		}
+	}
+	.service-text {
+	}
+}
+
+.general-payment-types {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 3.5em;
+
+	@media (max-width: @screen-xs-max) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	@media (max-width: @screen-xxs-max) {
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.service {
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 1.2em;
+			width: 17.0rem;
+		}
+		@media (max-width: @screen-xxs-max) {
+			width: auto;
+		}
+	}
+
+	.icon {
+		height: 5.3rem;
+		margin-bottom: 0.5em;
+		width: 5.3rem;
+
+		@media (max-width: @screen-xs-max) {
+			height: 4.5rem;
+			margin-bottom: 0.3em;
+			width: 4.5rem;
+		}
+	}
+}
+
+.general-tab-list {
+	margin: 1.5em 0 1.2em;
+
+	&.tab-list-free {
+
+	}
+	.tab-content {
+		margin-top: 1.8em;
+	}
+}
+
+.panel-group-collapse {
+	& > .panel {
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		padding: 0;
+
+		& > .panel-heading {
+			background: transparent;
+			border: none;
+			padding: 0.6em 0;
+
+			.panel-title {
+				display: inline-block;
+
+				a {
+					align-items: baseline;
+					color: @color-inactive;
+					display: flex;
+
+					&:focus {
+						color: @color-inactive;
+					}
+
+					&:after {
+						color: @color-inactive;
+						content: '\f125';
+						display: block;
+						font-family: 'Ionicons';
+						margin-left: 0.5em;
+						transform: rotate(90deg);
+						transition: all 0.3s;
+					}
+					&.collapsed {
+						color: @color-main;
+
+						&:after {
+							color: @color-main;
+							transform: initial;
+						}
+					}
+				}
+			}
+		}
+		.panel-body {
+			padding: 1.0em;
+
+			p {
+				&:first-child {
+					margin-top: 0;
+				}
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.roll-up {
+			padding-top: 0.6em;
+		}
+	}
+}

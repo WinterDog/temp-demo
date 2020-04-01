@@ -1,0 +1,67 @@
+
+.bootstrap-datetimepicker-widget {
+	&.datetimepicker-hm {
+		.label-hm {
+			background: #9f1b1b;
+			color: #ffffff;
+			font-weight: bold;
+			padding: 0.4em;
+			text-align: center;
+		}
+		.timepicker {
+			align-items: center;
+			display: flex;
+			flex-flow: row;
+			justify-content: center;
+		}
+		.timepicker-hours, .timepicker-minutes {
+			td {
+				height: 20px;
+				line-height: 20px;
+			}
+		}
+		.separator {
+			font-size: 2.0em;
+			padding: 0 0.4em;
+		}
+	}
+
+	.dow {
+		background: #9f1b1b;
+		border: 1px solid #9f1b1b;
+		color: #ffffff;
+	}
+	.day {
+		border: 1px solid #d2d2d2;
+	}
+
+	ul, li {
+		padding: initial;
+	}
+	table {
+		td, th {
+			border-radius: 0;
+		}
+		td.active {
+			background-color: #f94848;
+
+			&:hover {
+				background-color: #9f1b1b;
+			}
+		}
+		td.disabled {
+			background-color: #e6e6e6;
+
+			&:hover {
+				background-color: #e6e6e6;
+			}
+		}
+		td.today:before {
+			border-bottom-color: #f94848;
+		}
+
+		td span.active {
+			background-color: #9f1b1b;
+		}
+	}
+}

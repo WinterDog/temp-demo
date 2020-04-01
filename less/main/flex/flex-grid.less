@@ -1,0 +1,184 @@
+.col-space(@padding) {
+	padding-left: @padding;
+	padding-top: @padding;
+}
+.f-col-loop(@padding; @i: 1) when (@i <= 12) {
+	.f-col-@{i},
+	.f-col-xs-@{i},
+	.f-col-sm-@{i},
+	.f-col-md-@{i},
+	.f-col-lg-@{i} {
+		.col-space(@padding);
+	}
+	.f-col-loop(@padding; @i + 1);
+}
+
+.f-row {
+	display: flex;
+	flex-wrap: wrap;
+
+	&.space-xs {
+		margin-left: -0.25rem;
+		margin-top: -0.25rem;
+
+		.f-col,
+		.f-col-xs,
+		.f-col-sm,
+		.f-col-md,
+		.f-col-lg {
+			.col-space(0.25rem);
+		}
+		.f-col-loop(0.25rem);
+	}
+	&.space-sm {
+		margin-left: -0.5rem;
+		margin-top: -0.5rem;
+
+		.f-col,
+		.f-col-xs,
+		.f-col-sm,
+		.f-col-md,
+		.f-col-lg {
+			.col-space(0.5rem);
+		}
+		.f-col-loop(0.5rem);
+	}
+	&.space-md, &.space {
+		margin-left: -1.0rem;
+		margin-top: -1.0rem;
+
+		.f-col,
+		.f-col-xs,
+		.f-col-sm,
+		.f-col-md,
+		.f-col-lg {
+			.col-space(1.0rem);
+		}
+		.f-col-loop(1.0rem);
+	}
+	.no-grow {
+		flex-grow: initial;
+	}
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+.f-col-wrap {
+	min-height: 1px;
+	width: 100%;
+}
+
+.f-col-nowrap() {
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+// Резиновая колонка.
+.f-col {
+	.f-col-nowrap();
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+// Адаптивные резиновые колонки.
+.f-col-xs {
+	.f-col-wrap();
+	@media (min-width: @screen-xs-min) {
+		.f-col-nowrap();
+	}
+}
+
+.f-col-sm {
+	.f-col-wrap();
+	@media (min-width: @screen-sm-min) {
+		.f-col-nowrap();
+	}
+}
+
+.f-col-md {
+	.f-col-wrap();
+	@media (min-width: @screen-md-min) {
+		.f-col-nowrap();
+	}
+}
+
+.f-col-lg {
+	.f-col-wrap();
+	@media (min-width: @screen-lg-min) {
+		.f-col-nowrap();
+	}
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+// Миксин для колонки с шириной.
+.f-col-x(@cols) {
+	flex: 0 0 (100% / 12 * @cols);
+	max-width: (100% / 12 * @cols);
+}
+
+// Цикл (1-12) для колонок с шириной.
+.f-col-x-loop(@i: 1) when (@i <= 12) {
+	.f-col-@{i} {
+		.f-col-wrap();
+		.f-col-x(@i);
+	}
+	.f-col-x-loop(@i + 1);
+}
+
+// Колонки с шириной (.f-col-1, .f-col-2...).
+.f-col-x-loop();
+//----------------------------------------------------------------------------------------------------------------------
+
+// Миксин для адаптивной колонки с шириной.
+.f-col-x-x(@min-width; @cols) {
+	@media (min-width: @min-width) {
+		.f-col-x(@cols);
+	}
+}
+
+// .f-col-xs-x
+.f-col-xs-x-loop(@i: 1) when (@i <= 12) {
+	.f-col-xs-@{i} {
+		.f-col-wrap();
+		.f-col-x-x(@screen-xs-min; @i);
+	}
+	.f-col-xs-x-loop(@i + 1);
+}
+
+.f-col-xs-x-loop();
+//----------------------------------------------------------------------------------------------------------------------
+
+// .f-col-sm-x
+.f-col-sm-x-loop(@i: 1) when (@i <= 12) {
+	.f-col-sm-@{i} {
+		.f-col-wrap();
+		.f-col-x-x(@screen-sm-min; @i);
+	}
+	.f-col-sm-x-loop(@i + 1);
+}
+
+.f-col-sm-x-loop();
+//----------------------------------------------------------------------------------------------------------------------
+
+// .f-col-md-x
+.f-col-md-x-loop(@i: 1) when (@i <= 12) {
+	.f-col-md-@{i} {
+		.f-col-wrap();
+		.f-col-x-x(@screen-md-min; @i);
+	}
+	.f-col-md-x-loop(@i + 1);
+}
+
+.f-col-md-x-loop();
+//----------------------------------------------------------------------------------------------------------------------
+
+// .f-col-lg-x
+.f-col-lg-x-loop(@i: 1) when (@i <= 12) {
+	.f-col-lg-@{i} {
+		.f-col-wrap();
+		.f-col-x-x(@screen-lg-min; @i);
+	}
+	.f-col-lg-x-loop(@i + 1);
+}
+
+.f-col-lg-x-loop();
+//----------------------------------------------------------------------------------------------------------------------

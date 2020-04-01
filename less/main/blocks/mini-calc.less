@@ -1,0 +1,715 @@
+// Мини-калькулятор.
+.mini-calc-wrap {
+	margin: auto;
+	width: 48.0rem;
+
+	h3 {
+		color: @color-text-light;
+
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 0.5em;
+		}
+	}
+
+	.btn-submit {
+		margin-top: 8px;
+
+		@media (max-width: @screen-md-max) {
+			margin-top: 2.5rem;
+		}
+		@media (max-width: @screen-xs-max) {
+			margin-top: 1.2rem;
+		}
+	}
+
+	// Скруглённый инпут (класс вешается на родительский label).
+	.label-rounded {
+		// Большой инпут со скруглёнными краями, используется на главной.
+		input {
+			border: 2px solid @color-text-light;
+			border-radius: 50px;
+			box-shadow: none;
+			font-size: 1.0rem;
+			height: 45px;
+			outline: none;
+			padding: 11px 0.6rem;
+			transition: 0.5s;
+
+			&:focus, &:hover {
+				border-color: @color-text-moderate;
+				box-shadow: inset 0 2px 10px 1px rgba(186, 186, 186, 0.77);
+			}
+		}
+	}
+	// Инпут с иконкой.
+	.label-iconed {
+		position: relative;
+
+		input {
+			padding-left: 2.95rem;
+		}
+
+		.label-icon {
+			bottom: 0;
+			display: inline-block;
+			left: 0.95rem;
+			margin: auto 0;
+			position: absolute;
+			top: 0;
+
+			&:before {
+				color: @color-main;
+				font-family: 'Ionicons';
+				font-size: 2.0rem;
+				left: 0;
+				position: absolute;
+				top: 0.2rem;
+			}
+			&:after {
+				color: @color-text-light;
+				font-size: 1.1rem;
+				left: 0.47rem;
+				position: absolute;
+				top: 0.8rem;
+			}
+		}
+		.label-icon-from {
+			&:before {
+				content: '\f21b';
+			}
+			&:after {
+				content: 'A';
+			}
+		}
+		.label-icon-to {
+			&:before {
+				content: '\f21b';
+			}
+			&:after {
+				content: 'B';
+			}
+		}
+	}
+}
+// .mini-calc-wrap
+
+// Фоновые стрелки по бокам от калькулятора.
+.mini-calc-bgr {
+	border: 3px solid #ffffff;
+	bottom: 1.65rem;
+	//height: 17.5rem;
+	position: absolute;
+	top: 0.9rem;
+	width: 12.0rem;//17.5rem;
+	z-index: -1;
+
+	&:after {
+		bottom: -1.46rem;
+		color: #ffffff;
+		font-size: 2.2rem;
+		position: absolute;
+		transform: scaleX(0.6);
+	}
+
+	@media (max-width: @screen-xs-max) {
+		display: none;
+	}
+}
+.mini-calc-bgr-left {
+	border-right: none;
+	left: 0;
+	//transform: scale(-1, 1);
+
+	&:after {
+		content: '>';
+		right: -0.3rem;
+	}
+}
+.mini-calc-bgr-right {
+	border-left: none;
+	right: 0;
+
+	&:after {
+		content: '<';
+		left: -0.3rem;
+	}
+}
+
+// Выбор городов.
+.city-select-wrap {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin: 2.4em 0;
+	position: relative;
+	text-align: left;
+
+	@media (max-width: @screen-md-max) {
+		margin: 2.0rem 0;
+	}
+	@media (max-width: @screen-xs-max) {
+		flex-direction: column;
+		margin: 0.7em 0 0 0;
+	}
+
+	.input-wrap {
+		margin: 0;
+		width: 19.7rem;
+
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 1.0rem;
+			width: 100%;
+		}
+	}
+	.select2-container {
+		width: 100% !important;
+	}
+	.select2-selection--single {
+		border-radius: 25px !important;
+		border: 2px solid transparent !important;
+		height: 45px !important;
+		padding: 6px 33px !important;
+		transition: 0.5s;
+
+		&:before {
+			color: @color-main;
+			content: '\f456';
+			font-family: 'Ionicons';
+			font-size: 1.8rem;
+			left: 1.3rem;
+			position: absolute;
+			top: 0.4rem;
+		}
+
+		&:hover {
+			border: 2px solid #555555 !important;
+			box-shadow: inset 0 2px 10px 1px rgba(186, 186, 186, 0.77);
+			transition: 0.5s;
+		}
+	}
+	.select2-selection__arrow {
+		display: none;
+	}
+	.select2-results__group {
+		color: #999999;
+		font-weight: normal;
+	}
+
+	// Выравниваем всплывающий список вариантов адресов.
+	.suggestions-suggestions {
+		left: 1.3rem !important;
+		top: -0.05rem !important;
+		width: 17.2rem !important;
+	}
+
+	.city-swap-btn {
+		color: #ffffff;
+		font-size: 1.3rem;
+
+		&:hover {
+			color: @color-main;
+		}
+
+		@media (max-width: @screen-xs-max) {
+			display: none;
+		}
+	}
+	// Поле для текстового поиска города.
+	input {
+		min-width: 19.0rem;
+	}
+
+	&.city-select-wrap-wide {
+		margin: 1.3em 0;
+		position: relative;
+
+		.input-wrap {
+			width: 100%;
+		}
+		.city-swap-btn {
+			left: -1.1em;
+			position: absolute;
+			top: 2.3em;
+			transform: rotateZ(90deg);
+		}
+		// Выравниваем всплывающий список вариантов адресов.
+		.suggestions-suggestions {
+			width: 40.4rem !important;
+		}
+	}
+}
+// .city-select-wrap
+
+.cargo-input-wrap {
+	margin: 0;
+	position: relative;
+
+	.form-control {
+		color: #333333;
+		text-align: center;
+	}
+}
+
+/* Лейблы "кг", "м" и "м3" в мини-калькуляторе. */
+.input-label {
+	color: #888888;
+	position: absolute;
+	z-index: 5;
+}
+
+// Вес.
+.mini-calc-weight-wrap {
+	.form-control {
+		text-align: center;
+		width: 100%;
+	}
+	.input-label {
+		right: 2.7rem;
+		top: 0.9rem;
+
+		@media (max-width: @screen-xs-max) {
+			right: 2.0rem;
+		}
+	}
+}
+
+.mini-calc-size-volume-wrap {
+	@media (max-width: @screen-xs-max) {
+		padding-left: 0;
+	}
+}
+
+// Габариты.
+.mini-calc-size-wrap {
+	background-color: #ffffff;
+	border: 2px solid transparent;
+	border-radius: 25px;
+	transition: all 0.6s;
+
+	@media (max-width: @screen-xs-max) {
+		padding: 0 1.3rem;
+	}
+
+	.form-control {
+		border: none;
+		box-shadow: none;
+		color: #333333;
+		height: unset;
+		margin: 11px 0;
+		outline: none;
+		padding: 0;
+		text-align: center;
+		width: 50px;
+
+		@media (max-width: @screen-xs-max) {
+			width: 40px;
+		}
+	}
+	.col-xs-4 {
+		@media (max-width: @screen-xs-max) {
+			padding: 0;
+		}
+	}
+	.input-label {
+		right: -2.0rem;
+		top: 10px;
+
+		@media (max-width: @screen-xs-max) {
+			right: -0.7rem;
+		}
+	}
+	.input-label-meter {
+		right: -0.1rem;
+		top: 0.75rem;
+
+		@media (max-width: @screen-xs-max) {
+			right: -0.3rem;
+		}
+	}
+
+	&:focus, &:hover {
+		border: 2px solid #555555;
+		box-shadow: inset 0 2px 10px 1px rgba(186, 186, 186, 0.77);
+		transition: 0.6s;
+	}
+}
+
+// Объём.
+.mini-calc-volume-wrap {
+	text-align: center;
+
+	.volume-input-wrap {
+		height: 45px;
+	}
+	.cargo-input-wrap {
+		@media (max-width: @screen-xs-max) {
+			width: 100%;
+		}
+	}
+	.input-label {
+		right: 0.7rem;
+		top: 13px;
+	}
+	input {
+		@media (max-width: @screen-xs-max) {
+			width: 100%;
+		}
+	}
+}
+
+// Предварительный расчёт.
+.mini-calc-result {
+	min-height: 3.4em;
+	min-width: 10.0em;
+	position: relative;
+
+	.estimate-wrap {
+		color: #ffffff;
+		//margin-top: 0.9rem;
+		//opacity: 0;
+		text-align: center;
+		transition: all 0.3s;
+
+		@media (max-width: @screen-xs-max) {
+			margin: 0.7rem 0 0 0;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		.error {
+			padding: 0.5em;
+		}
+
+		.estimate {
+			font-size: 2.2rem;
+			font-weight: 400;
+			line-height: 1.3;
+			margin: 0;
+
+			.icon {
+				display: inline-block;
+				height: 0.7em;
+				width: 0.7em;
+			}
+			.estimate-note {
+				font-size: 1.0rem;
+				vertical-align: top;
+			}
+			.estimate-warning {
+				background: @color-main;
+				border-radius: 50%;
+				bottom: 0.15rem;
+				display: inline-block;
+				height: 1.5rem;
+				margin: auto;
+				position: relative;
+				width: 1.5rem;
+
+				&:before {
+					color: @color-text-light;
+					content: '!';
+					font-size: 1.1rem;
+					left: 0;
+					margin: auto;
+					position: absolute;
+					right: 0;
+					top: 0.05em;
+				}
+			}
+
+			&.sm {
+				font-size: 1.8rem;
+			}
+			&.xs {
+				font-size: 1.5rem;
+			}
+			&.xxs {
+				font-size: 1.2rem;
+			}
+		}
+
+		&.visible {
+			opacity: 1.0;
+		}
+	}
+	.load5 {
+		margin-top: 0.4rem;
+		opacity: 0;
+		transition: none;
+		z-index: 1;
+
+		&.visible {
+			opacity: 1.0;
+			transition: all 0.3s;
+		}
+
+		.loader {
+			font-size: 0.8rem;
+
+			@media (max-width: @screen-xs-max) {
+				font-size: 0.6rem;
+			}
+		}
+	}
+}
+// .mini-calc-result
+
+.mini-calc-shipping-wrap {
+	@media (min-width: @screen-lg-min) {
+		.city-select-wrap {
+			margin: 45px 0 37px;
+		}
+	}
+
+	input {
+		text-align: center;
+	}
+}
+
+.mini-calc-province-wrap {
+	.mini-calc-result {
+		padding: 0 1.0em 0 0;
+	}
+}
+
+.select2-container--open {
+	.mini-calc-select-dropdown {
+		left: 1.3rem;
+		width: 17.3rem !important;
+
+		@media (max-width: @screen-xs-max) {
+			width: 18.5rem !important;
+		}
+	}
+}
+
+// Новый мини-калькулятор по сборке и паллетке.
+.mini-calc-wrap-new {
+	max-width: 26.0rem;
+	margin: 2.0rem auto;
+
+	// Конфигурация формы меняется на мобилах, добавляем фон.
+	@media (max-width: @screen-xs-max) {
+		background: hsl(0, 0%, 95%);
+	}
+
+	.mini-calc-left-wrap,
+	.mini-calc-right-wrap {
+		background: hsl(0, 0%, 95%);
+		padding: 1.1rem;
+		position: relative;
+		border-radius: 10px;
+
+	    .from-point-wrap {
+			align-items: baseline;
+			display: flex;
+			flex-direction: row;
+		  	margin-left: 2.2rem;
+		}
+	}
+
+	.input-group-px-sm {
+		.form-control {
+			padding-left: 0.3em;
+			padding-right: 0.2em;
+		}
+	}
+
+	input.form-control {
+		text-align: center;
+	}
+
+	@media (min-width: @screen-sm-min) {
+		.mini-calc-left-wrap {
+			min-width: 21.0rem;
+			width: 21.0rem;
+
+			.form-group-mb-sm {
+				margin-bottom: 0.5rem;
+			}
+			.form-group-mb-lg {
+				margin-bottom: 1.7rem;
+			}
+		}
+	}
+
+	.mini-calc-right-wrap {
+		margin-bottom: auto;
+		padding-left: 1.1rem; //3.1rem;
+		padding-top: 1.85rem;
+
+		.form-group {
+			margin-bottom: 0.4rem;
+
+			label {
+				margin-bottom: 0.2rem;
+			}
+		}
+
+		@media (max-width: @screen-xs-max) {
+			padding-bottom: 0;
+			padding-left: 1.1rem;
+			padding-top: 0;
+		}
+	}
+
+	h4 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin-top: 0;
+		padding-left: 2.0rem;
+		text-transform: uppercase;
+
+		@media (max-width: @screen-xs-max) {
+			margin-bottom: 0.5em;
+		}
+	}
+
+	.text-note {
+		font-size: 0.9rem;
+		line-height: 1.1;
+	}
+
+	// Инпут с иконкой.
+	.group-iconed {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		min-height: 2.65rem;
+
+		.icon {
+			height: 1.3rem;
+			margin-right: 0.7rem;
+			min-height: 1.3rem;
+			min-width: 1.3rem;
+			width: 1.3rem;
+		}
+
+		.icon-from,
+		.icon-to {
+			position: relative;
+
+			&:before {
+				content: '\f21b';
+				font-family: 'Ionicons';
+				font-size: 1.8rem;
+				left: 0;
+				position: absolute;
+				top: -0.6rem;
+			}
+			&:after {
+				color: @color-text-light;
+				font-size: 0.95rem;
+				left: 0.44rem;
+				position: absolute;
+				top: -0.05rem;
+			}
+		}
+		.icon-from {
+			&:before {
+				color: @color-alt;
+			}
+			&:after {
+				content: 'A';
+			}
+		}
+		.icon-to {
+			&:before {
+				color: @color-main;
+			}
+			&:after {
+				content: 'B';
+				top: 0;
+			}
+		}
+
+		/*@media (min-width: @screen-sm-min) {
+			& + .group-iconed {
+				padding-left: 0;
+			}
+		}*/
+	}
+	.input-group-addon-light {
+		background: @color-text-light;
+		border-left: none;
+		border-right: none;
+		padding-left: 0.4rem;
+		padding-right: 0.4rem;
+	}
+
+	.city-swap-btn {
+		color: @color-main;
+		font-size: 1.25rem;
+		left: 0.22rem;
+		position: absolute;
+		top: 3.4rem;
+		transform: rotateZ(90deg);
+
+		&:hover {
+			color: @color-alt;
+		}
+
+		@media (max-width: @screen-xs-max) {
+			display: none;
+		}
+	}
+
+	.alert {
+		margin: 0;
+		padding: 0.8em;
+	}
+
+	.mini-calc-result-wrap {
+		padding: 0 1.1rem 1.1rem;
+		width: 100%;
+	}
+	.mini-calc-result {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		min-height: 3.3rem;
+		min-width: unset;
+		margin: 0.6rem 0;
+
+		.estimate-wrap {
+			min-height: 3.15em;
+
+			.estimate {
+				color: @color-text-dark;
+				line-height: initial;
+				margin-bottom: 0.2rem;
+			}
+		}
+
+		.load5 {
+			margin-top: 0.4rem;
+
+			.loader {
+				font-size: 0.6rem;
+
+				@media (max-width: @screen-xs-max) {
+					font-size: 0.4rem;
+				}
+			}
+		}
+	}
+	.mini-calc-switch {
+		background-color: @color-text-light;
+		border: none;
+		font-size: 2.0rem;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		width: 2.0rem;
+	}
+
+	// todo Временная костылина, чтобы поля не разъезжались по ширине внутри flex-контейнеров.
+	.select2.select2-container {
+		max-width: 20.8rem;
+	}
+}
+// .mini-calc-wrap-new

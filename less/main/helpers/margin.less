@@ -1,0 +1,188 @@
+/* Top */
+.margin-t-0 {
+	margin-top: 0 !important;
+}
+
+.margin-t-xs {
+	margin-top: 0.25rem !important;
+}
+
+.margin-t-sm {
+	margin-top: 0.5rem !important;
+}
+
+.margin-t-md, .margin-t {
+	margin-top: 1.0rem !important;
+}
+
+.margin-t-lg {
+	margin-top: 2.0rem !important;
+}
+
+.margin-t-xl {
+	margin-top: 3.0rem !important;
+}
+
+.margin-t-xxl {
+	margin-top: 4.0rem !important;
+}
+
+/* Right */
+.margin-r-0 {
+	margin-right: 0 !important;
+}
+
+.margin-r-xs {
+	margin-right: 0.25rem !important;
+}
+
+.margin-r-sm {
+	margin-right: 0.5rem !important;
+}
+
+.margin-r-md, .margin-r {
+	margin-right: 1.0rem !important;
+}
+
+.margin-r-lg {
+	margin-right: 2.0rem !important;
+}
+
+.margin-r-xl {
+	margin-right: 3.0rem !important;
+}
+
+.margin-r-xxl {
+	margin-right: 4.0rem !important;
+}
+
+/* Bottom */
+.margin-b-0 {
+	margin-bottom: 0 !important;
+}
+
+.margin-b-xs {
+	margin-bottom: 0.25rem !important;
+}
+
+.margin-b-sm {
+	margin-bottom: 0.5rem !important;
+}
+
+.margin-b-md, .margin-b {
+	margin-bottom: 1.0rem !important;
+}
+
+.margin-b-lg {
+	margin-bottom: 2.0rem !important;
+}
+
+.margin-b-xl {
+	margin-bottom: 3.0rem !important;
+}
+
+.margin-b-xxl {
+	margin-bottom: 4.0rem !important;
+}
+
+/* Left */
+.margin-l-0 {
+	margin-left: 0 !important;
+}
+
+.margin-l-xs {
+	margin-left: 0.25rem !important;
+}
+
+.margin-l-sm {
+	margin-left: 0.5rem !important;
+}
+
+.margin-l-md, .margin-l {
+	margin-left: 1.0rem !important;
+}
+
+.margin-l-lg {
+	margin-left: 2.0rem !important;
+}
+
+.margin-l-xl {
+	margin-left: 3.0rem !important;
+}
+
+.margin-l-xxl {
+	margin-left: 4.0rem !important;
+}
+
+.margin-tb-0 {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+.margin-tb-xs {
+	margin-bottom: 0.25rem !important;
+	margin-top: 0.25rem !important;
+}
+
+.margin-tb-sm {
+	margin-bottom: 0.5rem !important;
+	margin-top: 0.5rem !important;
+}
+
+.margin-tb-md {
+	margin-bottom: 1.0rem !important;
+	margin-top: 1.0rem !important;
+}
+
+.margin-tb-lg {
+	margin-bottom: 2.0rem !important;
+	margin-top: 2.0rem !important;
+}
+
+.margin-tb-xl {
+	margin-bottom: 3.0rem !important;
+	margin-top: 3.0rem !important;
+}
+
+.margin-tb-xxl {
+	margin-bottom: 4.0rem !important;
+	margin-top: 4.0rem !important;
+}
+
+.margin-t-auto {
+	margin-top: auto !important;
+}
+.margin-r-auto {
+	margin-right: auto !important;
+}
+.margin-b-auto {
+	margin-bottom: auto !important;
+}
+.margin-l-auto {
+	margin-left: auto !important;
+}
+
+// Классы, аналогичные Bootstrap 4.
+.mt-0 { margin-top: 0 !important; }
+.mr-0 { margin-right: 0 !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.ml-0 { margin-left: 0 !important; }
+.mx-0 { margin-right: 0 !important; margin-left: 0 !important; }
+.my-0 { margin-top: 0 !important; margin-bottom: 0 !important; }
+.mx-auto { margin-right: auto !important; margin-left: auto !important; }
+.my-auto { margin-top: auto !important; margin-bottom: auto !important; }
+.m-0 { margin: 0 !important; }
+.m-auto { margin: auto !important; }
+
+.m-loop(@i: 1) when (@i <= 7) {
+	.mt-@{i}r { margin-top: @i*(1.0rem) !important; }
+	.mr-@{i}r { margin-right: @i*(1.0rem) !important; }
+	.mb-@{i}r { margin-bottom: @i*(1.0rem) !important; }
+	.ml-@{i}r { margin-left: @i*(1.0rem) !important; }
+	.mx-@{i}r { margin-right: @i*(1.0rem) !important; margin-left: @i*(1.0rem) !important; }
+	.my-@{i}r { margin-top: @i*(1.0rem) !important; margin-bottom: @i*(1.0rem) !important; }
+	.m-@{i}r { margin: @i*(1.0rem) !important; }
+
+	.m-loop(@i + 1);
+}
+.m-loop(1);

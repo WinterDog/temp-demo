@@ -1,0 +1,110 @@
+.our-cars-slider {
+	margin: 0 auto;
+	max-width: 55.0em;
+	text-align: center;
+
+	.slick-arrow {
+		top: 35%;
+	}
+	.img-wrap {
+		align-content: center;
+		display: flex;
+		height: 15.0rem;
+
+		img {
+			max-height: 15.0rem;
+			margin: auto;
+		}
+	}
+	.text-wrap {
+		h3 {
+			margin: 0.5em 0 0.5em;
+			text-transform: uppercase;
+		}
+		.btn-link {
+			padding-left: 3.5rem;
+			padding-right: 3.5rem;
+		}
+	}
+}
+
+.car-specs-wrap {
+	align-content: center;
+	border: 1px solid @color-separator;
+	border-radius: 0.3rem;
+	display: flex;
+	justify-content: space-between;
+	margin: 1.05em auto 0;
+	max-width: 35.0em;
+	padding: 1.8em;
+
+	@media (max-width: @screen-xs-max) {
+		margin-bottom: 1.0em;
+	}
+	@media (max-width: @screen-xxs-max) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.car-specs {
+		margin: 0 1.0em;
+		position: relative;
+		width: 7.0em;
+
+		.icon {
+			height: 3.0em;
+			left: 0;
+			margin: 0 auto;
+			opacity: 0.3;
+			position: absolute;
+			right: 0;
+			top: 1.5em;
+			width: 3.0em;
+		}
+		.text-bold {
+			margin: 0.7em 0 0;
+
+			strong {
+				font-size: 1.6em;
+			}
+		}
+
+		@media (max-width: @screen-xxs-max) {
+			&:not(:last-child) {
+				margin-bottom: 2.0em;
+			}
+		}
+	}
+}
+
+.services-province {
+	.service {
+		&.service-arrow {
+			@media (max-width: @screen-sm-max) {
+				display: none;
+			}
+		}
+		&.service-1 {
+			@media (max-width: @screen-xs-max) {
+				order: 1;
+			}
+		}
+		&.service-2 {
+			@media (max-width: @screen-xs-max) {
+				order: 2;
+			}
+		}
+		&.service-3 {
+			@media (max-width: @screen-xs-max) {
+				order: 3;
+			}
+		}
+
+		.service-text {
+			margin-top: 1.3em;
+		}
+		.service-text-btn {
+			margin-top: 1.0em;
+		}
+	}
+}

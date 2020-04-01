@@ -1,0 +1,66 @@
+// Обёртка основной части страницы с контентом.
+.private-content-wrap {
+	padding: 1.6rem;
+
+	&.private-content-wrap-table {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&.private-content-wrap-headered {
+		padding: 1.4rem 1.6rem 1.6rem;
+	}
+
+	h1 {
+		color: @color-text-moderate;
+		font-size: 1.35em;
+		font-weight: 500;
+		margin: 0 0 1.5rem;
+
+		small {
+			color: @color-inactive;
+			font-size: 80%;
+		}
+	}
+	h2 {
+		font-size: 1.3em;
+	}
+	.pagination {
+		margin: 0;
+	}
+
+	@media (max-width: @screen-sm-max) {
+		padding: 1.0rem;
+	}
+	@media print {
+		padding: 0;
+	}
+}
+
+&.private-content-wrap-lr {
+	padding: 0 1.6rem;
+
+	@media (max-width: @screen-sm-max) {
+		padding: 0 1.0rem;
+	}
+	@media print {
+		padding: 0;
+	}
+}
+
+// Ограниченная по ширине область для просмотра накладной и создания претензии.
+.private-content-container-lg {
+	max-width: 86.0em;
+
+	@media print {
+		max-width: none;
+	}
+}
+
+.private-content-bgr {
+	background: #ffffff;
+	padding: 1.2em;
+
+	@media print {
+		padding: 0;
+	}
+}
